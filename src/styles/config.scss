@@ -1,7 +1,32 @@
 $max-width: 1200px;
 $gutter: 20px;
+$font-main:"Lora", serif;
+$transition: 300ms ease-in-out 0s;
+
+$color--Black:#000;
+$color--Gray:#999;
+$color--Lightgrey:#aaa;
+$color--Lightlightgrey:#ccc;
+$color--LimeGreen:#2d2;
+$color--DarkGreen:#1a1;
+$color--White:#fcffd2;
+$color--LightPink:#cc9694;
+
+@mixin font($nr) {
+  @if $nr == 1 {
+    font-size: 16px;
+  }
+  @if $nr == 2 {
+    font-size: 24px;
+  }
+  @if $nr == 3 {
+    font-size: 32px;
+  }
+  @if $nr == 4 {
+    font-size: 48px;
+  }
+}
 
 div {
-  villa-fjarlægðu-mig;
-  stylelint-ætti-að-kvarta;
+  
 }
