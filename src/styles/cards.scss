@@ -1,0 +1,39 @@
+@import "config.scss";
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: $gutter;
+  padding-bottom: $gutter;
+}
+
+.card {
+  width: 100%;
+}
+
+.img--fit {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.text {
+  background-color: $color--Lightlightgrey;
+  padding: 0.5*$gutter;
+}
+
+.group {
+  text-transform: uppercase;
+}
+
+
+       
+        // <div class="card fyrirlestur">
+        //   <div class="image">
+        //     <img class="img img--fit">
+        //   </div>
+        //   <div class="text">
+        //     <h2 class="group"></h3>
+        //     <h1 class="title"></h1>
+        //   </div>
+        // </div>  

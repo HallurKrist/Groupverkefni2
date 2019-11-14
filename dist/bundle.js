@@ -24,6 +24,9 @@
     if ((typeof data.thumbnail) === "string"){
       theImg.setAttribute('src', `${data.thumbnail}`);
     }
+
+    theImg.classList.add('img--fit');
+
     theGroup.appendChild(document.createTextNode(`${data.category}`));
     theTitle.appendChild(document.createTextNode(`${data.title}`));
 
