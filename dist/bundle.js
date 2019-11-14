@@ -24,14 +24,12 @@
 
     fetch('https://raw.githubusercontent.com/HallurKrist/Groupverkefni2/master/lectures.json')
     .then((result) => {
-      debugger;
       if (!result.ok) {
         throw new Error('Non 200 status');
       }
       return result.json();
     })
     .then(data => {
-      debugger; 
       makePage(data.lectures);
     })
     .catch(error => console.error(error));
