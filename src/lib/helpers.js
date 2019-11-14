@@ -35,7 +35,7 @@ export function card(element, data) {
 
 export function header(element, data, forsida) {
   const theHeader = el('header', 'header');
-  const theProtection = el('div', 'protection');
+  const theProtection = el('div', 'header__protection');
   const theEfri = el('h3', 'header__efri');
   const theNedri = el('h1', 'header__nedri');
 
