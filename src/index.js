@@ -1,5 +1,4 @@
 import '@babel/polyfill'
-import List from './lib/list';
 import { card , header , makeMain, makeButtons } from './lib/helpers';
 
 
@@ -21,13 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     makePage(data.lectures)
   })
   .catch(error => console.error(error));
-
-
-  if (isLecturePage) {
-  } else {
-    const list = new List();
-    list.load();
-  }
   
 });
 
