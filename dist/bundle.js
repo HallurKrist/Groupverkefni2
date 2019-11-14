@@ -7,6 +7,34 @@
     }
   }
 
+
+  function card(element, data) {
+    const theCard = el('div', 'card');
+    const imgDiv = el('div', 'image');
+    const textDiv = el('div', 'text');
+    const theImg = el('img', 'img');
+    const theGroup = el('h3', 'group');
+    const theTitle = el('h1', 'title');
+
+    imgDiv.appendChild(theImg);
+    textDiv.appendChild(theGroup);
+    textDiv.appendChild(theTitle);
+    theCard.appendChild(imgDiv);
+    theCard.appendChild(textDiv);
+
+    theImg.setAttribute('src', `${data.image}`);
+    theGroup.appendChild(document.createTextNode(`${data.category}`));
+    theTitle.appendChild(document.createTextNode(`${data.title}`));
+
+    element.appendChild(theCard);
+  }
+
+  function el(elType, elClass) {
+    const element = document.createElement(`${elType}`);
+    element.classList.add(`${elClass}`);
+    return element;
+  }
+
   class List {
     constructor() {
       this.container = document.querySelector('.list');
@@ -43,7 +71,9 @@
   });
 
   function makePage(data) {
+    const cards = document.querySelector('.cards');
     debugger;
+    card(cards, data[0]);
   }
 
 }());

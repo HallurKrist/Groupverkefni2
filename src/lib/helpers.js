@@ -4,45 +4,30 @@ export function empty(element) {
   }
 }
 
-export function fetchData() {
-  fetch('https://raw.githubusercontent.com/HallurKrist/Groupverkefni2/master/lectures.json')
-  .then((result) => {
-    debugger;
-    if (!result.ok) {
-      throw new Error('Non 200 status');
-    }
-    return result.json();
-  })
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
 
+export function card(element, data) {
+  const theCard = el('div', 'card');
+  const imgDiv = el('div', 'image');
+  const textDiv = el('div', 'text');
+  const theImg = el('img', 'img');
+  const theGroup = el('h3', 'group');
+  const theTitle = el('h1', 'title');
 
-  // const r = new XMLHttpRequest();
+  imgDiv.appendChild(theImg);
+  textDiv.appendChild(theGroup);
+  textDiv.appendChild(theTitle);
+  theCard.appendChild(imgDiv);
+  theCard.appendChild(textDiv);
 
-  // // Sækjum slóð með GET              async
-  // r.open('GET', 'https://raw.githubusercontent.com/HallurKrist/Groupverkefni2/master/lectures.json', true);
-  // debugger;
-  // // Fall sem keyrir við svar frá vefþjón
-  // // r mun innihalda gögn um HTTP kall
-  // r.onload = () => {
-  //   debugger;
-  // if (r.status >= 200 && r.status < 400) {
-  //   message('thad tokst?');
+  theImg.setAttribute('src', `${data.image}`)
+  theGroup.appendChild(document.createTextNode(`${data.category}`));
+  theTitle.appendChild(document.createTextNode(`${data.title}`));
 
-  //   return r.response;
-  // } else {
-  //   console.log('villa!', r);
-  // }
-  // };
-  // // Fall sem keyrir ef villa kemur upp
-  // r.onerror = () => {
-  //   console.log('villa í tengingu');
-  // };
-
-  // // Senda af stað -- verðum að kalla í þetta!
-  // r.send();
+  element.appendChild(theCard);
 }
 
-function message(text) {
-  console.log(text);
+function el(elType, elClass) {
+  const element = document.createElement(`${elType}`);
+  element.classList.add(`${elClass}`)
+  return element;
 }

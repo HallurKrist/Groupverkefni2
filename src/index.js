@@ -1,5 +1,6 @@
 import '@babel/polyfill'
 import List from './lib/list';
+import { card } from './lib/helpers';
 
 
 
@@ -32,5 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function makePage(data) {
   const page = data;
+  const cards = document.querySelector('.cards');
   debugger;
+  card(cards, data[0]);
 }
