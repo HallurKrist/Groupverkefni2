@@ -6,6 +6,7 @@ export function empty(element) {
 
 
 export function card(element, data) {
+  const theCards = el('div', 'row');
   const theCard = el('div', 'card');
   const imgDiv = el('div', 'image');
   const textDiv = el('div', 'text');
@@ -18,16 +19,18 @@ export function card(element, data) {
   textDiv.appendChild(theTitle);
   theCard.appendChild(imgDiv);
   theCard.appendChild(textDiv);
+  theCards.appendChild(theCard);
+
   if ((typeof data.thumbnail) === "string"){
     theImg.setAttribute('src', `${data.thumbnail}`);
   }
 
-  theImg.classList.add('img--fit')
+  theCards.classList.add('cards')
 
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
 
-  element.appendChild(theCard);
+  element.appendChild(theCards);
 }
 
 export function header(element, data, forsida) {
@@ -52,8 +55,16 @@ export function header(element, data, forsida) {
   element.appendChild(theHeader);
 }
 
+export function makeMain(element) {
+  const main = el('main', null);
+  element.appendChild(main);
+  return main;
+}
+
 function el(elType, elClass) {
   const element = document.createElement(`${elType}`);
-  element.classList.add(`${elClass}`)
+  if (elClass !== null) {
+    element.classList.add(`${elClass}`)
+  }
   return element;
 }
