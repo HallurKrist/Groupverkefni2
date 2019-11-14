@@ -58,14 +58,14 @@ export function header(element, data, forsida) {
 export function makeMain(element) {
   const main = el('main', null);
   const grid = el('div', 'grid');
-  main.
+  main.appendChild(grid);
   element.appendChild(main);
   return main;
 }
 
 export function makeButtons(element) {
 
-})
+}
 
 function el(elType, elClass) {
   const element = document.createElement(`${elType}`);

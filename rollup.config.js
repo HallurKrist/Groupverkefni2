@@ -8,16 +8,12 @@ module.exports = {
     sourcemap: true,
   },
   plugins: [
-    // babel({
-    //   exclude: 'node_modules/**',
-    //   sourceMaps: true,
-    //   runtimeHelpers: true,
-    //   presets: [
-    //     ['@babel/preset-env', { targets: '> 0.25%, not dead' }],
-    //   ],
-    //   plugins: [
-    //     ["@babel/plugins-transform-runtime", { "regenerator": true }]
-    //   ]
-    // }),
+    babel({
+      exclude: 'node_modules/**',
+      sourceMaps: true,
+      presets: [
+        ['@babel/preset-env', { targets: '> 0.25%, not dead' }],
+      ]
+    }),
   ],
 };
