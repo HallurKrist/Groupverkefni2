@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function makePage(data) {
-  const page = data;
   const cards = document.querySelector('.cards');
-  debugger;
-  card(cards, data[0]);
+  for (const dataCard of data){
+    card(cards, dataCard);
+  }
 }

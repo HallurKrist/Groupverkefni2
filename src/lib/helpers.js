@@ -18,8 +18,9 @@ export function card(element, data) {
   textDiv.appendChild(theTitle);
   theCard.appendChild(imgDiv);
   theCard.appendChild(textDiv);
-
-  theImg.setAttribute('src', `${data.image}`)
+  if ((typeof data.thumbnail) === "string"){
+    theImg.setAttribute('src', `${data.thumbnail}`);
+  }
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
 

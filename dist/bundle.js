@@ -21,8 +21,9 @@
     textDiv.appendChild(theTitle);
     theCard.appendChild(imgDiv);
     theCard.appendChild(textDiv);
-
-    theImg.setAttribute('src', `${data.image}`);
+    if ((typeof data.thumbnail) === "string"){
+      theImg.setAttribute('src', `${data.thumbnail}`);
+    }
     theGroup.appendChild(document.createTextNode(`${data.category}`));
     theTitle.appendChild(document.createTextNode(`${data.title}`));
 
@@ -72,8 +73,9 @@
 
   function makePage(data) {
     const cards = document.querySelector('.cards');
-    debugger;
-    card(cards, data[0]);
+    for (const dataCard of data){
+      card(cards, dataCard);
+    }
   }
 
 }());
