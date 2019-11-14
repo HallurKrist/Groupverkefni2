@@ -39,4 +39,8 @@ function makePage(data) {
   header(frontpage, null, true);
   debugger;
   card(cards, data[0]);
+  const cards = document.querySelector('.cards');
+  for (const dataCard of data){
+    card(cards, dataCard);
+  }
 }
