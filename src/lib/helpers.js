@@ -30,6 +30,28 @@ export function card(element, data) {
   element.appendChild(theCard);
 }
 
+export function header(element, data, forsida) {
+  const theHeader = el('header', 'header');
+  const theProtection = el('div', 'protection');
+  const theEfri = el('h3', 'header__efri');
+  const theNedri = el('h1', 'header__nedri');
+
+  theProtection.appendChild(theEfri);
+  theProtection.appendChild(theNedri);
+  theHeader.appendChild(theProtection);
+
+  if (forsida) {
+    theEfri.appendChild(document.createTextNode('Vefforritun'));
+    theNedri.appendChild(document.createTextNode('Fyrirlestrar'));
+  } else {
+    theEfri.appendChild(document.createTextNode(`${data.category}`));
+    theNedri.appendChild(document.createTextNode(`${data.title}`));
+  }
+  
+
+  element.appendChild(theHeader);
+}
+
 function el(elType, elClass) {
   const element = document.createElement(`${elType}`);
   element.classList.add(`${elClass}`)

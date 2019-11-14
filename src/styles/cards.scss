@@ -12,11 +12,6 @@
   width: 100%;
 }
 
-.img--fit {
-  height: 100%;
-  flex-grow: 1;
-}
-
 .text {
   background-color: $color--Lightlightgrey;
   padding: 0.5*$gutter;
@@ -29,8 +24,8 @@
 
        
         // <div class="card fyrirlestur">
-        //   <div class="image">
-        //     <img class="img img--fit">
+        //   <div class="image image--found">
+        //     <img class="img">
         //   </div>
         //   <div class="text">
         //     <h2 class="group"></h3>

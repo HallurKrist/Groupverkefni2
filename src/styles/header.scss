@@ -1,0 +1,48 @@
+@import "config";
+
+
+.header {
+    position: relative;
+    margin-bottom: 3*$gutter;
+
+    height: 265px;
+    width: 100%;
+
+    padding-top: 3*$gutter;
+    background: url("../img/header.jpg");
+    background-size: cover;
+    
+
+    &__protection {
+        height: 100%;
+        position: absolute;  
+        flex-grow: 1;
+        z-index : 1; 
+
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color:rgba($color: $color--Lightlightgrey, $alpha: 0.5);
+    }
+
+    &__efri {
+        margin-top: 3*$gutter;
+        padding-top: $gutter;
+        position: relative;
+        font-family: $Roboto;
+        text-align: center;
+        z-index: 1;
+        text-transform: uppercase;
+        @include font(1);
+    }
+
+    &__nedri {
+        font-family: $Roboto;
+        font-weight: 900;
+        text-align: center;
+        z-index: 1;
+        margin-bottom: 4*$gutter;
+        @include font(4);
+    }
+}

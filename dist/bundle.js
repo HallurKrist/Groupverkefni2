@@ -33,6 +33,28 @@
     element.appendChild(theCard);
   }
 
+  function header(element, data, forsida) {
+    const theHeader = el('header', 'header');
+    const theProtection = el('div', 'protection');
+    const theEfri = el('h3', 'header__efri');
+    const theNedri = el('h1', 'header__nedri');
+
+    theProtection.appendChild(theEfri);
+    theProtection.appendChild(theNedri);
+    theHeader.appendChild(theProtection);
+
+    if (forsida) {
+      theEfri.appendChild(document.createTextNode('Vefforritun'));
+      theNedri.appendChild(document.createTextNode('Fyrirlestrar'));
+    } else {
+      theEfri.appendChild(document.createTextNode(`${data.category}`));
+      theNedri.appendChild(document.createTextNode(`${data.title}`));
+    }
+    
+
+    element.appendChild(theHeader);
+  }
+
   function el(elType, elClass) {
     const element = document.createElement(`${elType}`);
     element.classList.add(`${elClass}`);
@@ -75,7 +97,12 @@
   });
 
   function makePage(data) {
+    const frontpage = document.querySelector('.frontpage');
     const cards = document.querySelector('.cards');
+
+    header(frontpage, null, true);
+    debugger;
+    card(cards, data[0]);
     for (const dataCard of data){
       card(cards, dataCard);
     }
