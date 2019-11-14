@@ -1,5 +1,5 @@
 import '@babel/polyfill'
-import { card , header , makeMain, makeButtons } from './lib/helpers';
+import { cards , header , makeMainNGrid, makeButtons } from './lib/helpers';
 
 
 
@@ -26,9 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function makePage(data) {
   const frontpage = document.querySelector('.frontpage');
   header(frontpage, null, true);
-  const main = makeMain(frontpage);
-  makeButtons(main);
-  for (const dataCard of data){
-    card(main, dataCard);
-  }
+  const grid = makeMainNGrid(frontpage);
+  makeButtons(grid);
+  cards(grid, data);
 }
