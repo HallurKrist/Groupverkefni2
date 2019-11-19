@@ -2,14 +2,16 @@
 
 .cards {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
   padding-top: $gutter;
   padding-bottom: $gutter;
 }
 
 .card {
   width: 100%;
+  margin-bottom: $gutter;
+  margin-top: $gutter;
 }
 
 .text {
@@ -19,6 +21,10 @@
 
 .group {
   text-transform: uppercase;
+}
+
+.img--noImg {
+  height: 0px;
 }
 
 

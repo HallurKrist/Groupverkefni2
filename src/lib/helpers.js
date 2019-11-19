@@ -4,9 +4,19 @@ export function empty(element) {
   }
 }
 
+export function cards(element, data) {
+  const theCards = el('div', 'row');
+
+  theCards.classList.add('cards');
+
+  for (const dataCard of data){
+    card(theCards, dataCard);
+  }
+
+  element.appendChild(theCards);
+}
 
 export function card(element, data) {
-  const theCards = el('div', 'row');
   const theCard = el('div', 'card');
   const imgDiv = el('div', 'image');
   const textDiv = el('div', 'text');
@@ -19,18 +29,17 @@ export function card(element, data) {
   textDiv.appendChild(theTitle);
   theCard.appendChild(imgDiv);
   theCard.appendChild(textDiv);
-  theCards.appendChild(theCard);
 
   if ((typeof data.thumbnail) === "string"){
     theImg.setAttribute('src', `${data.thumbnail}`);
+  } else {
+    imgDiv.classList.add('img--noImg')
   }
-
-  theCards.classList.add('cards')
 
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
 
-  element.appendChild(theCards);
+  element.appendChild(theCard);
 }
 
 export function header(element, data, forsida) {
@@ -55,16 +64,31 @@ export function header(element, data, forsida) {
   element.appendChild(theHeader);
 }
 
-export function makeMain(element) {
+export function makeMainNGrid(element) {
   const main = el('main', null);
   const grid = el('div', 'grid');
   main.appendChild(grid);
   element.appendChild(main);
-  return main;
+  return grid;
 }
 
 export function makeButtons(element) {
+  const buttons = el('div', 'row');
+  const button1 = el('button','button__header');
+  const button2 = el('button','button__header');
+  const button3 = el('button','button__header');
 
+  buttons.appendChild(button1);
+  buttons.appendChild(button2);
+  buttons.appendChild(button3);
+
+  button1.appendChild(document.createTextNode('HTML'));
+  button2.appendChild(document.createTextNode('CSS'));
+  button3.appendChild(document.createTextNode('JavaScript'));
+
+  buttons.classList.add('buttons');
+
+  element.appendChild(buttons);
 }
 
 function el(elType, elClass) {
