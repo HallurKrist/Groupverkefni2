@@ -1,0 +1,15 @@
+@import "config";
+
+.lecture__quote{
+ background-color:$color--Lightlightgrey;
+ margin:20px 0;
+ padding:0px 20px;
+ &__quote{
+  margin-bottom: 10px;
+  padding-top:10px;
+ }
+ &__quoter{
+  padding-bottom:10px;
+  font-style: italic;
+ }
+}
