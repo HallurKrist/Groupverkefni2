@@ -147,10 +147,16 @@ function makeCardEvent(cards) {
 function loadLecture(event) {
   const slug = event.srcElement.parentNode.parentNode.className;
   const trim = slug.substring(5);
-  findLecture(trim);
+  const theLecture = findLecture(trim);
   debugger;
 }
 
-function findLecture(slug){
-  const lecture = window.localStorage.getItem('data');
+function findLecture(name){
+  const lectures = JSON.parse(window.localStorage.getItem('data'));
+  for(const lect of lectures) {
+    lect.slug;
+    if(lect.slug === name){
+      return lect;
+    }
+  }
 }
