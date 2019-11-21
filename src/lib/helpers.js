@@ -15,7 +15,6 @@ export function cards(element, data) {
   for (const dataCard of data){
     card(theCards, dataCard);
   }
-  debugger;
   makeCardEvent(theCards);
 
   element.appendChild(theCards);
@@ -142,6 +141,11 @@ function el(elType, elClass) {
 
 function makeCardEvent(cards) {
   for(card of cards.children) {
-    card.addEventListener('click', makePage);
+    card.addEventListener('click', loadLecture);
   }
+}
+
+function loadLecture(event) {
+  event.srcElement;
+  debugger;
 }
