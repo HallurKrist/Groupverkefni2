@@ -45,6 +45,7 @@ export function makeCard(element, data) {
 
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
+  theCard.classList.add(`${data.slug}`)
   
   const html = document.querySelector('.button__html').classList.contains('button__active');
   const css = document.querySelector('.button__css').classList.contains('button__active');
@@ -144,6 +145,11 @@ function makeCardEvent(cards) {
 }
 
 function loadLecture(event) {
-  event.srcElement;
+  const slug = event.srcElement.parentNode.parentNode.className;
+  const trim = slug.substring(5);
+  findLecture(trim);
+}
 
+function findLecture(slug){
+  const lecture = window.localStorage.getItem('data');
 }

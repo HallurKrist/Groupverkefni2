@@ -5,6 +5,10 @@ import { cards , header , makeMainNGrid, makeButtons } from './lib/helpers';
 
 
 document.addEventListener('DOMContentLoaded', () => {
+<<<<<<< HEAD
+  //debugger;
+=======
+>>>>>>> 9f1465d7a079bb2fee523d9eec10b9420d3481b0
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains
   ('lecture-page');
