@@ -4,10 +4,10 @@ export function makeLecturePart(element, data) {
 	const type = data.type;
 	if(type === "youtube"){
 		console.log('youtube');
-		makeYoutube(element,data);
+		makeYoutube(element, data);
 	} else if(type === "text") {
 		console.log('text');
-
+		makeText(element, data);
 	} else if(type === "image") {
 		console.log('image');
 
@@ -38,7 +38,11 @@ function makeYoutube(element, data) {
 }
 
 function makeText(element, data) {
+	const text = document.createElement('p');
  
+	text.appendChild(document.createTextNode(data.data));
+
+	element.appendChild(text);
 }
 
 function makeHeading(element, data) {
