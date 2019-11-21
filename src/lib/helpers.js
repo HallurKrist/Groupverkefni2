@@ -40,16 +40,12 @@ export function card(element, data) {
 
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
-<<<<<<< HEAD
   
   const html = document.querySelector('.button__html');
   const yes = html.classList.contains('button__active');
   console.log(yes);
-  element.appendChild(theCard);
-=======
 
   element.appendChild(theCol);
->>>>>>> 36e8883b17803ad26b2ba52d0f8af07d5c350451
 }
 
 export function header(element, data, forsida) {
