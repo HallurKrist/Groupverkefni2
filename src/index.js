@@ -28,6 +28,9 @@ export function makePage(data, isLecture) {
 
   if(isLecture) {
     console.log('on lecture page');
+    const theLect = JSON.parse(window.localStorage.getItem('lecture'));
+    const lectArray = theLect.content;
+    debugger;
   } else {
     const frontpage = document.querySelector('.frontpage');
     header(frontpage, null, true);

@@ -147,8 +147,7 @@ function makeCardEvent(cards) {
 function loadLecture(event) {
   const slug = event.srcElement.parentNode.parentNode.className;
   const trim = slug.substring(5);
-  const theLecture = findLecture(trim);
-  debugger;
+  findLecture(trim);
 }
 
 function findLecture(name){
@@ -156,7 +155,7 @@ function findLecture(name){
   for(const lect of lectures) {
     lect.slug;
     if(lect.slug === name){
-      return lect;
+      window.localStorage.setItem('lecture', JSON.stringify(lect)) ;
     }
   }
 }
