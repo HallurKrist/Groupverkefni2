@@ -25,15 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
    debugger;
 });
 
-export function makePage(data, isLecture) {
+function makePage(data, isLecture) {
   debugger;
-  if (isLecture) {
+  if(isLecture) {
     console.log('on lecture page');
   } else {
-    const frontpage = document.querySelector  ('.frontpage');
+    const frontpage = document.querySelector('.frontpage');
     header(frontpage, null, true);
     const grid = makeMainNGrid(frontpage);
     makeButtons(grid);
+    window.localStorage.setItem('data', JSON.stringify  (data));
     cards(grid, data);
   }
 }
+
+

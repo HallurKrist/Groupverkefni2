@@ -22,6 +22,7 @@ export function cards(element, data) {
 }
 
 export function card(element, data) {
+  const theCol = el('div', 'col');
   const theCard = el('a', 'card');
   const imgDiv = el('div', 'image');
   const textDiv = el('div', 'text');
@@ -36,6 +37,7 @@ export function card(element, data) {
   textDiv.appendChild(theTitle);
   theCard.appendChild(imgDiv);
   theCard.appendChild(textDiv);
+  theCol.appendChild(theCard);
 
   if ((typeof data.thumbnail) === "string"){
     theImg.setAttribute('src', `${data.thumbnail}`);
@@ -45,8 +47,12 @@ export function card(element, data) {
 
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
+  
+  const html = document.querySelector('.button__html');
+  const yes = html.classList.contains('button__active');
+  console.log(yes);
 
-  element.appendChild(theCard);
+  element.appendChild(theCol);
 }
 
 export function header(element, data, forsida) {
@@ -85,6 +91,10 @@ export function makeButtons(element) {
   const button2 = el('button','button__header');
   const button3 = el('button','button__header');
 
+  button1.classList.add('button__html');
+  button2.classList.add('button__css');
+  button3.classList.add('button__javascript');
+
   buttons.appendChild(button1);
   buttons.appendChild(button2);
   buttons.appendChild(button3);
@@ -105,6 +115,12 @@ export function makeButtons(element) {
 function toggle(){
   this.classList.toggle('button__active');
   console.log('actived');
+  const cardss = document.querySelector('.cards');
+  const parent = cardss.parentElement;
+  parent.removeChild(cardss);
+  const data = JSON.parse(window.localStorage.getItem('data'));
+ // debugger;
+  cards(parent, data);
 }
 
 function el(elType, elClass) {
