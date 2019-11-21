@@ -147,5 +147,4 @@ function makeCardEvent(cards) {
 
 function loadLecture(event) {
   event.srcElement;
-  debugger;
 }
