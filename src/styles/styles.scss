@@ -1,5 +1,4 @@
 @import "config";
-@import "buttons";
 
 * {
   padding: 0;
@@ -27,8 +26,10 @@ img { /* stylelint-disable-line */
 }
 
 main{
+  display: flex;
   text-align:center;
   max-width:1200px;
+  justify-content: center;
 }
 
 .grid{
@@ -39,3 +40,4 @@ main{
 // TODO import
 @import "cards.scss";
 @import "header.scss";
+@import "buttons";
