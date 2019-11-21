@@ -53,7 +53,8 @@
 
 @media(min-width: 700px) {
   .card {
-
+    //height: 100%;
+    z-index: 1;
   }
   .col {
     width: 33.33333%;
@@ -65,6 +66,11 @@
 
   .main {
     padding: 0;
+  }
+
+  .img--noImg {
+    //height: 84%;
+    //background-color: $color--Lightlightgrey
   }
 }
 

@@ -15,7 +15,6 @@ export function cards(element, data) {
   for (const dataCard of data){
     card(theCards, dataCard);
   }
-  debugger;
   makeCardEvent(theCards);
 
   element.appendChild(theCards);

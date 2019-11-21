@@ -21,12 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
      makePage(data.lectures, isLecturePage);
    })
    .catch(error => console.error(error));
-  
-   debugger;
 });
 
 function makePage(data, isLecture) {
-  debugger;
   if(isLecture) {
     console.log('on lecture page');
   } else {
