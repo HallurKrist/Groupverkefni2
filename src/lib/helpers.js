@@ -40,16 +40,21 @@ export function card(element, data) {
 
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
-<<<<<<< HEAD
   
-  const html = document.querySelector('.button__html');
-  const yes = html.classList.contains('button__active');
-  console.log(yes);
-  element.appendChild(theCard);
-=======
+  const html = document.querySelector('.button__html').classList.contains('button__active');
+  const css = document.querySelector('.button__css').classList.contains('button__active');
+  const javascript = document.querySelector('.button__javascript').classList.contains('button__active');
+  
+  if(!html && !css && !javascript){
+    element.appendChild(theCol);
+  } else if(`${data.category}` === 'html' && html){
+    element.appendChild(theCol);
+  } else if(`${data.category}` === 'css' && css){
+    element.appendChild(theCol);
+  } else if(`${data.category}` === 'javascript' && javascript){
+    element.appendChild(theCol);
+  }
 
-  element.appendChild(theCol);
->>>>>>> 36e8883b17803ad26b2ba52d0f8af07d5c350451
 }
 
 export function header(element, data, forsida) {
@@ -111,12 +116,10 @@ export function makeButtons(element) {
 
 function toggle(){
   this.classList.toggle('button__active');
-  console.log('actived');
   const cardss = document.querySelector('.cards');
   const parent = cardss.parentElement;
   parent.removeChild(cardss);
   const data = JSON.parse(window.localStorage.getItem('data'));
- // debugger;
   cards(parent, data);
 }
 
@@ -126,9 +129,4 @@ function el(elType, elClass) {
     element.classList.add(`${elClass}`)
   }
   return element;
-}
-
-
-function funky(e){
-  document.querySelectorAll('')
 }
