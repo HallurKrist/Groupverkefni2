@@ -141,6 +141,11 @@ function el(elType, elClass) {
 
 function makeCardEvent(cards) {
   for(card of cards.children) {
-    card.addEventListener('click', makePage);
+    card.addEventListener('click', loadLecture);
   }
+}
+
+function loadLecture(event) {
+  event.srcElement;
+  debugger;
 }

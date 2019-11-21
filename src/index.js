@@ -5,6 +5,7 @@ import { cards , header , makeMainNGrid, makeButtons } from './lib/helpers';
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  debugger;
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains
   ('lecture-page');
@@ -21,9 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
      makePage(data.lectures, isLecturePage);
    })
    .catch(error => console.error(error));
+
 });
 
-function makePage(data, isLecture) {
+export function makePage(data, isLecture) {
+
   if(isLecture) {
     console.log('on lecture page');
   } else {
