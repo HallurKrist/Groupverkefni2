@@ -1,0 +1,22 @@
+@import "config";
+
+.buttons{
+ display:flex;
+ justify-content: space-between;
+ //margin: 0 $gutter;
+ height:40px;
+ .button{
+   &__header{
+     @include rounded;
+     padding: 10px 15px;
+     height:48px;
+     font-weight:bold;
+     font-size:1.5em;
+     box-shadow: 1px 1px 1px $color--Gray;
+     
+    }
+   &__active{
+    background-color: $color--LimeGreen;
+   }
+ }
+}

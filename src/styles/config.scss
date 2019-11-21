@@ -13,6 +13,11 @@ $color--DarkGreen:#1a1;
 $color--White:#fcffd2;
 $color--LightPink:#cc9694;
 
+@mixin rounded {
+  border: 0px solid #000;
+  border-radius: 10px;
+}
+
 @mixin font($nr) {
   @if $nr == 1 {
     font-size: 16px;

@@ -93,9 +93,18 @@ export function makeButtons(element) {
   button2.appendChild(document.createTextNode('CSS'));
   button3.appendChild(document.createTextNode('JavaScript'));
 
+  button1.addEventListener('click', toggle);
+  button2.addEventListener('click', toggle);
+  button3.addEventListener('click', toggle);
+
   buttons.classList.add('buttons');
 
   element.appendChild(buttons);
+}
+
+function toggle(){
+  this.classList.toggle('button__active');
+  console.log('actived');
 }
 
 function el(elType, elClass) {
