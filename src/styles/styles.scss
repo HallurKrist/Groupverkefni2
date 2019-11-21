@@ -35,6 +35,12 @@ main{
 
 .grid{
   font-family:$Roboto;
+  width: 100%;
+  margin: 0 $gutter;
+
+  @media(min-width: 1200px) {
+    margin: 0;
+  }
 }
 
 // TODO import
