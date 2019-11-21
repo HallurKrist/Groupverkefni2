@@ -47,7 +47,7 @@ export function card(element, data) {
 
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
-
+  
   const html = document.querySelector('.button__html').classList.contains('button__active');
   const css = document.querySelector('.button__css').classList.contains('button__active');
   const javascript = document.querySelector('.button__javascript').classList.contains('button__active');
@@ -63,7 +63,6 @@ export function card(element, data) {
     element.appendChild(theCol);
   }
 }
-
 
 
 
@@ -140,12 +139,9 @@ function el(elType, elClass) {
   }
   return element;
 }
-<<<<<<< HEAD
 
 function makeCardEvent(cards) {
   for(card of cards.children) {
     card.addEventListener('click', makePage);
   }
 }
-=======
->>>>>>> fda687d05355178f2af81f05a4b086d4316794a4
