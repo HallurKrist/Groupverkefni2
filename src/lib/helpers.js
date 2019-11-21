@@ -1,3 +1,6 @@
+import { makePage } from '../index';
+
+
 export function empty(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
@@ -12,17 +15,21 @@ export function cards(element, data) {
   for (const dataCard of data){
     card(theCards, dataCard);
   }
+  debugger;
+  makeCardEvent(theCards);
 
   element.appendChild(theCards);
 }
 
 export function card(element, data) {
-  const theCard = el('div', 'card');
+  const theCard = el('a', 'card');
   const imgDiv = el('div', 'image');
   const textDiv = el('div', 'text');
   const theImg = el('img', 'img');
   const theGroup = el('h3', 'group');
   const theTitle = el('h1', 'title');
+
+  theCard.setAttribute('href', 'fyrirlestur.html');
 
   imgDiv.appendChild(theImg);
   textDiv.appendChild(theGroup);
@@ -97,4 +104,10 @@ function el(elType, elClass) {
     element.classList.add(`${elClass}`)
   }
   return element;
+}
+
+function makeCardEvent(cards) {
+  for(card of cards.children) {
+    card.addEventListener('click', makePage);
+  }
 }
