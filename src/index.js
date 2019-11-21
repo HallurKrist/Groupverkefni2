@@ -1,5 +1,6 @@
 import '@babel/polyfill'
 import { cards , header , makeMainNGrid, makeButtons } from './lib/helpers';
+import { makeLecturePart } from './lib/lecture';
 
 
 
@@ -28,8 +29,12 @@ export function makePage(data, isLecture) {
 
   if(isLecture) {
     console.log('on lecture page');
+    const lecturePage = document.querySelector('.lecture-page');
     const theLect = JSON.parse(window.localStorage.getItem('lecture'));
     const lectArray = theLect.content;
+    for(const lectPart of lectArray) {
+      makeLecturePart(lecturePage,lectPart);
+    }
     debugger;
   } else {
     const frontpage = document.querySelector('.frontpage');
