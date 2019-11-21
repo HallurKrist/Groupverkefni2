@@ -35,7 +35,6 @@ export function makePage(data, isLecture) {
     for(const lectPart of lectArray) {
       makeLecturePart(lecturePage,lectPart);
     }
-    debugger;
   } else {
     const frontpage = document.querySelector('.frontpage');
     header(frontpage, null, true);

@@ -1,5 +1,3 @@
-import { makePage } from '../index';
-
 
 export function empty(element) {
   while (element.firstChild) {
