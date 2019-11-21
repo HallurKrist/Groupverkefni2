@@ -5,7 +5,7 @@ export function empty(element) {
 }
 
 export function cards(element, data) {
-  const theCards = el('div', 'row');
+  const theCards = el('div', 'cards__row');
 
   theCards.classList.add('cards');
 
