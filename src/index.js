@@ -5,7 +5,6 @@ import { cards , header , makeMainNGrid, makeButtons } from './lib/helpers';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  debugger;
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains
   ('lecture-page');
