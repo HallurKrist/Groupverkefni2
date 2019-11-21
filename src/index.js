@@ -28,5 +28,8 @@ function makePage(data) {
   header(frontpage, null, true);
   const grid = makeMainNGrid(frontpage);
   makeButtons(grid);
+  window.localStorage.setItem('data', JSON.stringify(data));
   cards(grid, data);
 }
+
+
