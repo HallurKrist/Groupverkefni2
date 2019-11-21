@@ -8,7 +8,7 @@ export function empty(element) {
 }
 
 export function cards(element, data) {
-  const theCards = el('div', 'row');
+  const theCards = el('div', 'cards__row');
 
   theCards.classList.add('cards');
 
@@ -47,13 +47,25 @@ export function card(element, data) {
 
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
-  
-  const html = document.querySelector('.button__html');
-  const yes = html.classList.contains('button__active');
-  console.log(yes);
 
-  element.appendChild(theCol);
+  const html = document.querySelector('.button__html').classList.contains('button__active');
+  const css = document.querySelector('.button__css').classList.contains('button__active');
+  const javascript = document.querySelector('.button__javascript').classList.contains('button__active');
+
+  
+  if(!html && !css && !javascript){
+    element.appendChild(theCol);
+  } else if(`${data.category}` === 'html' && html){
+    element.appendChild(theCol);
+  } else if(`${data.category}` === 'css' && css){
+    element.appendChild(theCol);
+  } else if(`${data.category}` === 'javascript' && javascript){
+    element.appendChild(theCol);
+  }
 }
+
+
+
 
 export function header(element, data, forsida) {
   const theHeader = el('header', 'header');
@@ -114,12 +126,10 @@ export function makeButtons(element) {
 
 function toggle(){
   this.classList.toggle('button__active');
-  console.log('actived');
   const cardss = document.querySelector('.cards');
   const parent = cardss.parentElement;
   parent.removeChild(cardss);
   const data = JSON.parse(window.localStorage.getItem('data'));
- // debugger;
   cards(parent, data);
 }
 
@@ -130,9 +140,12 @@ function el(elType, elClass) {
   }
   return element;
 }
+<<<<<<< HEAD
 
 function makeCardEvent(cards) {
   for(card of cards.children) {
     card.addEventListener('click', makePage);
   }
 }
+=======
+>>>>>>> fda687d05355178f2af81f05a4b086d4316794a4
