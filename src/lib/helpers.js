@@ -9,18 +9,17 @@ export function empty(element) {
 
 export function cards(element, data) {
   const theCards = el('div', 'cards__row');
-
   theCards.classList.add('cards');
 
   for (const dataCard of data){
-    card(theCards, dataCard);
+    makeCard(theCards, dataCard);
   }
   makeCardEvent(theCards);
 
   element.appendChild(theCards);
 }
 
-export function card(element, data) {
+export function makeCard(element, data) {
   const theCol = el('div', 'col');
   const theCard = el('a', 'card');
   const imgDiv = el('div', 'image');
@@ -52,7 +51,6 @@ export function card(element, data) {
   const css = document.querySelector('.button__css').classList.contains('button__active');
   const javascript = document.querySelector('.button__javascript').classList.contains('button__active');
 
-  
   if(!html && !css && !javascript){
     element.appendChild(theCol);
   } else if(`${data.category}` === 'html' && html){
@@ -141,8 +139,8 @@ function el(elType, elClass) {
 }
 
 function makeCardEvent(cards) {
-  for(card of cards.children) {
-    card.addEventListener('click', loadLecture);
+  for(const kort of cards.children) {
+    kort.addEventListener('click', loadLecture);
   }
 }
 
