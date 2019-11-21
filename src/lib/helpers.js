@@ -148,6 +148,7 @@ function loadLecture(event) {
   const slug = event.srcElement.parentNode.parentNode.className;
   const trim = slug.substring(5);
   findLecture(trim);
+  debugger;
 }
 
 function findLecture(slug){

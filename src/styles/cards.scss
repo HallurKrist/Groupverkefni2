@@ -34,11 +34,14 @@
 
   display: flex;
   flex-direction: column;
+
+  text-decoration: none;
 }
 
 .text {
   background-color: $color--Lightlightgrey;
   padding: 0.5*$gutter;
+  color: $color--Black;
 }
 
 .group {
