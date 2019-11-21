@@ -147,14 +147,9 @@ function makeCardEvent(cards) {
 }
 
 function loadLecture(event) {
-<<<<<<< HEAD
   const slug = event.srcElement.parentNode.parentNode.className;
   const trim = slug.substring(5);
   findLecture(trim);
-  debugger;
-=======
-  event.srcElement;
->>>>>>> 9f1465d7a079bb2fee523d9eec10b9420d3481b0
 }
 
 function findLecture(slug){
