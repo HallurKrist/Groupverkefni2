@@ -5,7 +5,7 @@ export function empty(element) {
 }
 
 export function cards(element, data) {
-  const theCards = el('div', 'row');
+  const theCards = el('div', 'cards__row');
 
   theCards.classList.add('cards');
 
@@ -41,6 +41,7 @@ export function card(element, data) {
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
   
+<<<<<<< HEAD
   const html = document.querySelector('.button__html').classList.contains('button__active');
   const css = document.querySelector('.button__css').classList.contains('button__active');
   const javascript = document.querySelector('.button__javascript').classList.contains('button__active');
@@ -55,6 +56,13 @@ export function card(element, data) {
     element.appendChild(theCol);
   }
 
+=======
+  const html = document.querySelector('.button__html');
+  const yes = html.classList.contains('button__active');
+  console.log(yes);
+
+  element.appendChild(theCol);
+>>>>>>> 125abad425e0e6615f9959385df1c7746f085be7
 }
 
 export function header(element, data, forsida) {
