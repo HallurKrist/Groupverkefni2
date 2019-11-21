@@ -2,16 +2,32 @@
 
 .cards {
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
   align-content: center;
   padding-top: $gutter;
   padding-bottom: $gutter;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.col {
+  //width: 100%;
 }
 
 .card {
   width: 100%;
   margin-bottom: $gutter;
   margin-top: $gutter;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .text {

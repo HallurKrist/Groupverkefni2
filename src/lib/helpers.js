@@ -17,6 +17,7 @@ export function cards(element, data) {
 }
 
 export function card(element, data) {
+  const theCol = el('div', 'col');
   const theCard = el('div', 'card');
   const imgDiv = el('div', 'image');
   const textDiv = el('div', 'text');
@@ -29,6 +30,7 @@ export function card(element, data) {
   textDiv.appendChild(theTitle);
   theCard.appendChild(imgDiv);
   theCard.appendChild(textDiv);
+  theCol.appendChild(theCard);
 
   if ((typeof data.thumbnail) === "string"){
     theImg.setAttribute('src', `${data.thumbnail}`);
@@ -39,7 +41,7 @@ export function card(element, data) {
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
 
-  element.appendChild(theCard);
+  element.appendChild(theCol);
 }
 
 export function header(element, data, forsida) {
