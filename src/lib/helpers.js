@@ -26,16 +26,11 @@ export function makeCard(element, data) {
   const theGroup = el('h3', 'group');
   const theTitle = el('h1', 'title');
 
-  
-  
-
   theCard.setAttribute('href', 'fyrirlestur.html');
 
   imgDiv.appendChild(theImg);
   textDiv.appendChild(theGroup);
   textDiv.appendChild(theTitle);
-
-  
 
   theCard.appendChild(imgDiv);
   theCard.appendChild(textDiv);
@@ -69,6 +64,10 @@ export function makeCard(element, data) {
   const checkMark = el('p','text__check')
   checkMark.appendChild(document.createTextNode('✓'));
   theTitle.appendChild(checkMark);
+  const checked = JSON.parse(window.localStorage.getItem('checkedLectures'));
+  if(!checked.includes(`${data.slug}`)) {
+    checkMark.classList.add('text__check--notChecked');
+  }
 }
 
 

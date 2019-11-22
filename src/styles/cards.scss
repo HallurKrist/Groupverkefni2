@@ -57,6 +57,9 @@
   margin-top:-5px;
   &__check{
     color: $color--LimeGreen;
+    &--notChecked {
+      color: transparent;
+    }
   }
 }
 
