@@ -1,4 +1,4 @@
-import { el } from './helpers';
+import { el, checkLecture } from './helpers';
 // föll sem taka element og data sem viðfang og byr til hlut á elementið eftir því hvernig data það er.
 
 export function makeLecturePart(element, data) {
@@ -43,7 +43,7 @@ export function lectureBottom(grid){
 	check.appendChild(document.createTextNode('Klára fyrirlestur'));
 	back.appendChild(document.createTextNode('Tilbaka'));
 	
-	//check.addEventListener('click', '');
+	check.addEventListener('click', checkLecture);
 	back.setAttribute('href', 'index.html');
 	
 

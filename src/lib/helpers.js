@@ -178,20 +178,36 @@ function findLecture(name){
 }
 
 export function checkLecture() {
-  const lecture = window.localStorage.getItem('lecture');
-  if(lecture);
-  debugger;
+  const lecture = JSON.parse(window.localStorage.getItem('lecture'));
+  const slug = lecture.slug;
 
-  // const theChecked = {"checked": [
-  //   {
-  //     `${lecture}`:"done!"
-  //   }
-  // ]};
+  
 
   if(!window.localStorage.getItem('checkedLectures')) {
-    window.localStorage.setItem('checkedLectures', )
+    window.localStorage.setItem('checkedLectures', JSON.stringify([`${slug}`]));
   } else {
-
+    const oldLect = JSON.parse(window.localStorage.getItem('checkedLectures'));
+    if(oldLect.includes(slug)) {
+    //  debugger;
+      const newnewLect = newLect(slug, oldLect);
+      window.localStorage.removeItem('checkedLectures');
+      window.localStorage.setItem('checkedLectures', JSON.stringify(newnewLect));
+     // debugger;
+    } else {
+      oldLect.push(slug);
+      window.localStorage.setItem('checkedLectures',  JSON.stringify(oldLect));
+    }
   }
-  debugger;
+  const stuff = JSON.parse(window.localStorage.getItem('checkedLectures'));
+ // debugger;
+}
+
+function newLect(slug, oldLect) {
+  const newArray = [];
+  for(let oldSlug of oldLect) {
+    if(slug != oldSlug) {
+      newArray.push(oldSlug);
+    }
+  }
+  return newArray;
 }
