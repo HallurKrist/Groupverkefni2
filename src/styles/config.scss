@@ -14,7 +14,7 @@ $color--White:#fcffd2;
 $color--LightPink:#cc9694;
 
 @mixin rounded {
-  border: 0px solid #000;
+  border: 0 solid #000;
   border-radius: 10px;
 }
 
@@ -32,4 +32,3 @@ $color--LightPink:#cc9694;
     font-size: 48px;
   }
 }
-
