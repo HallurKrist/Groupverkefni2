@@ -15,8 +15,7 @@ export function el(elType, elClass) {
 
 function findLecture(name) {
   const lectures = JSON.parse(window.localStorage.getItem('data'));
-  for (const lect of lectures) {
-    lect.slug;
+  for (const lect of lectures) { // eslint-disable-line no-restricted-syntax
     if (lect.slug === name) {
       window.localStorage.setItem('lecture', JSON.stringify(lect));
     }
@@ -34,8 +33,8 @@ function loadLecture(event) {
   findLecture(trim);
 }
 
-function makeCardEvent(cards) {
-  for (const kort of cards.children) {
+function makeCardEvent(cardss) {
+  for (const kort of cardss.children) { // eslint-disable-line no-restricted-syntax
     kort.addEventListener('click', loadLecture);
   }
 }
@@ -97,7 +96,7 @@ export function cards(element, data) {
   const theCards = el('div', 'cards__row');
   theCards.classList.add('cards');
 
-  for (const dataCard of data) {
+  for (const dataCard of data) { // eslint-disable-line no-restricted-syntax
     makeCard(theCards, dataCard);
   }
   makeCardEvent(theCards);
@@ -176,12 +175,29 @@ export function makeButtons(element) {
 
 function newLect(slug, oldLect) {
   const newArray = [];
-  for (const oldSlug of oldLect) {
+  for (const oldSlug of oldLect) { // eslint-disable-line no-restricted-syntax
     if (slug !== oldSlug) {
       newArray.push(oldSlug);
     }
   }
   return newArray;
+}
+
+export function checkLocal() {
+  const lecture = JSON.parse(window.localStorage.getItem('lecture'));
+  const checkedMemory = JSON.parse(window.localStorage.getItem('checkedLectures'));
+
+  if (checkedMemory.includes(lecture.slug)) {
+    const p = document.querySelector('.lecture__check__link');
+    p.classList.add('lecture__check__active');
+    empty(p);
+    p.appendChild(document.createTextNode('✓ Fyrirlestur Kláraður'));
+  } else if (!checkedMemory.includes(lecture.slug)) {
+    const p = document.querySelector('.lecture__check__link');
+    p.classList.remove('lecture__check__active');
+    empty(p);
+    p.appendChild(document.createTextNode('Klára Fyrirlestur'));
+  }
 }
 
 export function checkLecture() {
@@ -202,33 +218,5 @@ export function checkLecture() {
       window.localStorage.setItem('checkedLectures', JSON.stringify(oldLect));
     }
   }
-  // debugger;
   checkLocal();
-  // debugger;
-}
-export function checkLocal() {
-  // debugger;
-  const lecture = JSON.parse(window.localStorage.getItem('lecture'));
-  const checkedMemory = JSON.parse(window.localStorage.getItem('checkedLectures'));
-
-  if (checkedMemory.includes(lecture.slug)) {
-    const p = document.querySelector('.lecture__check__link');
-    p.classList.add('lecture__check__active');
-    empty(p);
-    p.appendChild(document.createTextNode('✓ Fyrirlestur Kláraður'));
-  } else if (!checkedMemory.includes(lecture.slug)) {
-    const p = document.querySelector('.lecture__check__link');
-    p.classList.remove('lecture__check__active');
-    empty(p);
-    p.appendChild(document.createTextNode('Klára Fyrirlestur'));
-  }
-}
-function newLect(slug, oldLect) {
-  const newArray = [];
-  for (const oldSlug of oldLect) {
-    if (slug != oldSlug) {
-      newArray.push(oldSlug);
-    }
-  }
-  return newArray;
 }
