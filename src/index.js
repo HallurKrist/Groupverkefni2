@@ -1,6 +1,6 @@
 import '@babel/polyfill';
 import {
-  cards, header, makeMainNGrid, makeButtons,
+  cards, header, makeMainNGrid, makeButtons, checkLocal
 } from './lib/helpers';
 import { makeLecturePart, lectureBottom } from './lib/lecture';
 
@@ -20,6 +20,7 @@ export function makePage(data, isLecture) {
     }
 
     lectureBottom(grid);
+    checkLocal();
   } else {
     const frontpage = document.querySelector('.frontpage');
     header(frontpage, null, true);
