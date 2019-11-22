@@ -1,6 +1,6 @@
 import '@babel/polyfill';
 import {
-  cards, header, makeMainNGrid, makeButtons
+  cards, header, makeMainNGrid, makeButtons,
 } from './lib/helpers';
 import { makeLecturePart, lectureBottom } from './lib/lecture';
 
@@ -46,4 +46,3 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch((error) => console.error(error));
 });
-

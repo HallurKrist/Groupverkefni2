@@ -65,7 +65,7 @@ export function makeCard(element, data) {
   checkMark.appendChild(document.createTextNode('✓'));
   theTitle.appendChild(checkMark);
   const checked = JSON.parse(window.localStorage.getItem('checkedLectures'));
-  if(!checked.includes(`${data.slug}`)) {
+  if (!checked.includes(`${data.slug}`)) {
     checkMark.classList.add('text__check--notChecked');
   }
 }
