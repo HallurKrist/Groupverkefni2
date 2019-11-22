@@ -24,20 +24,20 @@ img { /* stylelint-disable-line */
   width: 100%;
 }
 
-main{
+main {
   display: flex;
-  margin:auto;
-  text-align:center;
-  max-width:1200px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
   justify-content: center;
 }
 
-.grid{
-  font-family:$Roboto;
+.grid {
   width: 100%;
   margin: 0 $gutter;
+  font-family: $Roboto;
 
-  @media(min-width: 1200px) {
+  @media (min-width: 1200px) {
     margin: 0;
   }
 }

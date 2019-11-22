@@ -2,188 +2,185 @@ import { el, checkLecture } from './helpers';
 // föll sem taka element og data sem viðfang og byr til hlut á elementið eftir því hvernig data það er.
 
 export function makeLecturePart(element, data) {
-	const type = data.type;
-	if(type === "youtube"){
-		console.log('youtube');
-		makeYoutube(element, data);
-	} else if(type === "text") {
-		console.log('text');
-		makeText(element, data);
-	} else if(type === "image") {
-		console.log('image');
-		makeImage(element, data);
-	} else if(type === "quote") {
-		console.log('quote');
-		makeQuote(element, data);
-	} else if(type === "code") {
-		console.log('code');
-		makeCode(element, data);
-	} else if(type === "heading") {
-		console.log('heading');
-		makeHeading(element, data);
-	} else if(type === "list") {
-		console.log('list');
-		makeList(element, data);
-	} 
+  const { type } = data;
+  if (type === 'youtube') {
+    console.log('youtube');
+    makeYoutube(element, data);
+  } else if (type === 'text') {
+    console.log('text');
+    makeText(element, data);
+  } else if (type === 'image') {
+    console.log('image');
+    makeImage(element, data);
+  } else if (type === 'quote') {
+    console.log('quote');
+    makeQuote(element, data);
+  } else if (type === 'code') {
+    console.log('code');
+    makeCode(element, data);
+  } else if (type === 'heading') {
+    console.log('heading');
+    makeHeading(element, data);
+  } else if (type === 'list') {
+    console.log('list');
+    makeList(element, data);
+  }
 
-	document.querySelector('main').classList.add('lecture__main');
-
+  document.querySelector('main').classList.add('lecture__main');
 }
 
-export function lectureBottom(grid){
-      
-	const check = el('p','lecture__check__link');
-	const back = el('a','lecture__back__link');
-	const checkDiv = document.createElement('div');
-	const backDiv = document.createElement('div');
+export function lectureBottom(grid) {
+  const check = el('p', 'lecture__check__link');
+  const back = el('a', 'lecture__back__link');
+  const checkDiv = document.createElement('div');
+  const backDiv = document.createElement('div');
 
-	checkDiv.classList.add('lecture__check');
-	backDiv.classList.add('lecture__back');
-	
-	check.appendChild(document.createTextNode('Klára fyrirlestur'));
-	back.appendChild(document.createTextNode('Tilbaka'));
-	
-	check.addEventListener('click', checkLecture);
-	back.setAttribute('href', 'index.html');
-	
+  checkDiv.classList.add('lecture__check');
+  backDiv.classList.add('lecture__back');
 
-	checkDiv.appendChild(check);
-	backDiv.appendChild(back);
+  check.appendChild(document.createTextNode('Klára fyrirlestur'));
+  back.appendChild(document.createTextNode('Tilbaka'));
 
-	grid.appendChild(checkDiv);
-	grid.appendChild(backDiv);
+  check.addEventListener('click', checkLecture);
+  back.setAttribute('href', 'index.html');
+
+
+  checkDiv.appendChild(check);
+  backDiv.appendChild(back);
+
+  grid.appendChild(checkDiv);
+  grid.appendChild(backDiv);
 }
 
 function makeYoutube(element, data) {
-	const videoDiv = document.createElement('div');
-	const iframe = document.createElement('iframe');
-	const URL = data.data;
+  const videoDiv = document.createElement('div');
+  const iframe = document.createElement('iframe');
+  const URL = data.data;
 
-	videoDiv.classList.add('lecture__video');
-	iframe.classList.add('lecture__video__video');
-	//debugger;
-	iframe.setAttribute('src', `${URL}?autoplay=1&autohide=1&border=0&wmode=opaque&enablejsapi=1`);
-//	iframe.setAttribute('width', "400");
-//	iframe.setAttribute('height', "auto");
-	
-	videoDiv.appendChild(iframe);
-	element.appendChild(videoDiv);
+  videoDiv.classList.add('lecture__video');
+  iframe.classList.add('lecture__video__video');
+  // debugger;
+  iframe.setAttribute('src', `${URL}?autoplay=1&autohide=1&border=0&wmode=opaque&enablejsapi=1`);
+  //	iframe.setAttribute('width', "400");
+  //	iframe.setAttribute('height', "auto");
+
+  videoDiv.appendChild(iframe);
+  element.appendChild(videoDiv);
 }
 
 function makeText(element, data) {
-	const textDiv = document.createElement('div');
-	//const text = document.createElement('p');
+  const textDiv = document.createElement('div');
+  // const text = document.createElement('p');
 
-	textDiv.classList.add('lecture__text');
- 
-	//text.appendChild(document.createTextNode(data.data));
+  textDiv.classList.add('lecture__text');
 
-	const allText = data.data.split('\n');
-	for(let paragraph of allText){
-		const text = document.createElement('p');
-		text.appendChild(document.createTextNode(paragraph));
-		textDiv.appendChild(text);
-	}
-	//debugger;
-	console.log(data.data);
+  // text.appendChild(document.createTextNode(data.data));
 
-//	textDiv.appendChild(text);
-	element.appendChild(textDiv);
+  const allText = data.data.split('\n');
+  for (const paragraph of allText) {
+    const text = document.createElement('p');
+    text.appendChild(document.createTextNode(paragraph));
+    textDiv.appendChild(text);
+  }
+  // debugger;
+  console.log(data.data);
+
+  //	textDiv.appendChild(text);
+  element.appendChild(textDiv);
 }
 
 function makeHeading(element, data) {
-	const headDiv = document.createElement('div');
-	const head = document.createElement('h2');
+  const headDiv = document.createElement('div');
+  const head = document.createElement('h2');
 
-	headDiv.classList.add('lecture__heading');
-	head.appendChild(document.createTextNode(data.data));
+  headDiv.classList.add('lecture__heading');
+  head.appendChild(document.createTextNode(data.data));
 
-	headDiv.appendChild(head);
-	element.appendChild(headDiv);
-	//debugger; 
+  headDiv.appendChild(head);
+  element.appendChild(headDiv);
+  // debugger;
 }
 
 function makeList(element, data) {
-	const listDiv = document.createElement('div');
-	const list = document.createElement('ul');
+  const listDiv = document.createElement('div');
+  const list = document.createElement('ul');
 
-	listDiv.classList.add('lecture__list');
+  listDiv.classList.add('lecture__list');
 
-	for(let listitem of data.data){
-		let item = document.createElement('li');
-		item.appendChild(document.createTextNode(listitem));
-		list.appendChild(item);
-	}	
-	listDiv.appendChild(list);
-	element.appendChild(listDiv);
+  for (const listitem of data.data) {
+    const item = document.createElement('li');
+    item.appendChild(document.createTextNode(listitem));
+    list.appendChild(item);
+  }
+  listDiv.appendChild(list);
+  element.appendChild(listDiv);
 }
 
 function makeQuote(element, data) {
-	const quote = document.createElement('div');
-	const quotee = document.createElement('div');
-	const quoteBundle = document.createElement('div');
-	
-	quote.classList.add('lecture__quote__quote');
-	quotee.classList.add('lecture__quote__quotee');
-	quoteBundle.classList.add('lecture__quote');
+  const quote = document.createElement('div');
+  const quotee = document.createElement('div');
+  const quoteBundle = document.createElement('div');
 
-	quote.appendChild(document.createTextNode(data.data));
-	quotee.appendChild(document.createTextNode(data.attribute));
-	
-	quoteBundle.appendChild(quote);
-	quoteBundle.appendChild(quotee);
+  quote.classList.add('lecture__quote__quote');
+  quotee.classList.add('lecture__quote__quotee');
+  quoteBundle.classList.add('lecture__quote');
 
-	element.appendChild(quoteBundle);
-//	console.log(data.data);
-	
+  quote.appendChild(document.createTextNode(data.data));
+  quotee.appendChild(document.createTextNode(data.attribute));
+
+  quoteBundle.appendChild(quote);
+  quoteBundle.appendChild(quotee);
+
+  element.appendChild(quoteBundle);
+  //	console.log(data.data);
 }
 
 function makeCode(element, data) {
-	const codeDiv = document.createElement('div');
-	const code = document.createElement('code');
-	
-	codeDiv.classList.add('lecture__code');
+  const codeDiv = document.createElement('div');
+  const code = document.createElement('code');
 
-	const allCode = data.data.split('\n');
-	for(let line of allCode){
-		if(line === ""){
-			line = " ";
-		}
-		const text = document.createElement('pre');
-		text.appendChild(document.createTextNode(line));
-		//codeDiv.appendChild(document.createTextNode(" "));
-		codeDiv.appendChild(text);
-	//	codeDiv.appendChild(document.createElement('div'));
-	//	debugger;
-	}
-	//const code = data.data;
-	//code.appendChild(document.createTextNode(data.data));
+  codeDiv.classList.add('lecture__code');
 
-	codeDiv.appendChild(code);
-	element.appendChild(codeDiv);
+  const allCode = data.data.split('\n');
+  for (let line of allCode) {
+    if (line === '') {
+      line = ' ';
+    }
+    const text = document.createElement('pre');
+    text.appendChild(document.createTextNode(line));
+    // codeDiv.appendChild(document.createTextNode(" "));
+    codeDiv.appendChild(text);
+    //	codeDiv.appendChild(document.createElement('div'));
+    //	debugger;
+  }
+  // const code = data.data;
+  // code.appendChild(document.createTextNode(data.data));
 
-	console.log(data.data);
-	//debugger;
-	//console.log(code);
+  codeDiv.appendChild(code);
+  element.appendChild(codeDiv);
+
+  console.log(data.data);
+  // debugger;
+  // console.log(code);
 }
 
 function makeImage(element, data) {
-	const img = document.createElement('img');
-	const imgDiv = document.createElement('div');
-	const imgCaption = document.createElement('div');
-	
-	imgDiv.classList.add('lecture__image');
-	imgCaption.classList.add('lecture__image__caption');
-	img.classList.add('lecture__image__img');
+  const img = document.createElement('img');
+  const imgDiv = document.createElement('div');
+  const imgCaption = document.createElement('div');
 
-	const url = data.data;
-	const caption = data.caption;
+  imgDiv.classList.add('lecture__image');
+  imgCaption.classList.add('lecture__image__caption');
+  img.classList.add('lecture__image__img');
 
-	imgCaption.appendChild(document.createTextNode(data.caption));
-	img.setAttribute('src', url);
+  const url = data.data;
+  const { caption } = data;
 
-	imgDiv.appendChild(img);
-	imgDiv.appendChild(imgCaption);
+  imgCaption.appendChild(document.createTextNode(data.caption));
+  img.setAttribute('src', url);
 
-	element.appendChild(imgDiv);
+  imgDiv.appendChild(img);
+  imgDiv.appendChild(imgCaption);
+
+  element.appendChild(imgDiv);
 }

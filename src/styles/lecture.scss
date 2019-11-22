@@ -1,84 +1,98 @@
 @import "config";
 
-.lecture{
- &__main{
-  max-width:800px;
-  margin:auto;
- }
- &__heading{
-  text-align:left;
-  margin:$gutter;
-  font-family:$Roboto;
- }
- &__quote{
-  text-align:left;
-  background-color:$color--Lightlightgrey;
-  margin:20px 0;
-  padding:15px 20px;
-  font-family:$font-main;
-  &__quote{
-   margin-bottom: 10px;
+.lecture {
+  &__main {
+    max-width: 800px;
+    margin: auto;
   }
-  &__quotee{
-   font-style: italic;
-  }
- }
- &__video{
-   position: relative;
 
-   padding-top: $gutter;
-   padding-bottom: 50%;
-   overflow: hidden;
+  &__heading {
+    margin: $gutter;
+    font-family: $Roboto;
+    text-align: left;
+  }
 
-  &__video{
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 0;
-    width: 100%;
-    height: 100%;
-  }
- }
+  &__quote {
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-family: $font-main;
+    text-align: left;
+    background-color: $color--Lightlightgrey;
 
- &__text{
-  text-align:left;
-  line-height:1.5em;
-  font-family:$font-main;
-  p{
-   margin:$gutter;
+    &__quote {
+      margin-bottom: 10px;
+    }
+
+    &__quotee {
+      font-style: italic;
+    }
   }
- }
- &__list{
-  text-align:left;
-  line-height:1.5em;
-  margin:$gutter;
-  font-family:$font-main;
- }
- &__image{
-  margin:2*$gutter $gutter;
-  &__img{
+
+  &__video {
+    position: relative;
+
+    padding-top: $gutter;
+    padding-bottom: 50%;
+    overflow: hidden;
+
+    &__video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   }
-  &__caption{
-   text-align:left;
-   font-family:$font-main;
+
+  &__text {
+    font-family: $font-main;
+    line-height: 1.5em;
+    text-align: left;
+
+    p {
+      margin: $gutter;
+    }
   }
- }
- &__code{
-  margin:$gutter;
-  text-align:left;
- }
- &__check{
-  margin:$gutter 0;
-  &__active{
-   color:$color--LimeGreen;
+
+  &__list {
+    margin: $gutter;
+    font-family: $font-main;
+    line-height: 1.5em;
+    text-align: left;
   }
- }
- &__back{
-  margin:$gutter 0;
-  &__link{
-   text-decoration: none;
-   color:$color--Black;
+
+  &__image {
+    margin: 2*$gutter $gutter;
+
+    &__img{
+    }
+
+    &__caption {
+      font-family: $font-main;
+      text-align: left;
+    }
   }
- }
+
+  &__code {
+    margin: $gutter;
+    text-align: left;
+  }
+
+  &__check {
+    margin: $gutter 0;
+
+    &__active {
+      color: $color--LimeGreen;
+    }
+  }
+
+  &__back {
+    margin: $gutter 0;
+
+    &__link {
+      color: $color--Black;
+      text-decoration: none;
+    }
+  }
 }
-

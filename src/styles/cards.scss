@@ -6,17 +6,17 @@
   align-content: center;
   padding-top: $gutter;
   padding-bottom: $gutter;
-  text-align:left;
+  text-align: left;
 
   &__row {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  
-    margin-left: -10px;
     margin-right: -10px;
 
-    @media(min-width: 700px) {
+    margin-left: -10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    @media (min-width: 700px) {
       flex-direction: row;
     }
   }
@@ -24,39 +24,44 @@
 
 .col {
   width: 100%;
-
-  margin-bottom: $gutter;
-  margin-top: $gutter;
-
-  padding-left: 0.5*$gutter;
   padding-right: 0.5*$gutter;
 
-  @media(min-width: 700px) {
+  padding-left: 0.5*$gutter;
+  margin-top: $gutter;
+
+  margin-bottom: $gutter;
+
+  @media (min-width: 700px) {
     width: 33.33333%;
   }
 }
 
 .card {
+
+  display: flex;
   width: 100%;
   height: 100%;
 
-  display: flex;
+  text-decoration: none;
   flex-direction: column;
 
-  text-decoration: none;
-
-  @media(min-width: 700px) {
+  @media (min-width: 700px) {
     z-index: -1;
   }
 }
 
 .text {
-  background-color: $color--Lightlightgrey;
   padding: 0.5*$gutter;
+  margin-top: -5px;
   color: $color--Black;
-  margin-top:-5px;
-  &__check{
+  background-color: $color--Lightlightgrey;
+
+  &__check {
     color: $color--LimeGreen;
+
+    &--notChecked {
+      color: transparent;
+    }
   }
 }
 
@@ -65,34 +70,33 @@
 }
 
 .title {
-  font-weight: bold;
   display: flex;
+  font-weight: bold;
   justify-content: space-between;
 }
 
 .img--noImg {
-  height: 0px;
+  height: 0;
   background-color: $color--Lightlightgrey;
 
-  @media(min-width: 700px) {
+  @media (min-width: 700px) {
     height: 100%;
   }
 }
 
-@media(min-width: 700px) {
+@media (min-width: 700px) {
   .main {
     padding: 0;
   }
 }
 
 
-       
-        // <div class="card fyrirlestur">
-        //   <div class="image image--found">
-        //     <img class="img">
-        //   </div>
-        //   <div class="text">
-        //     <h2 class="group"></h3>
-        //     <h1 class="title"></h1>
-        //   </div>
-        // </div>  
+// <div class="card fyrirlestur">
+//   <div class="image image--found">
+//     <img class="img">
+//   </div>
+//   <div class="text">
+//     <h2 class="group"></h3>
+//     <h1 class="title"></h1>
+//   </div>
+// </div>
