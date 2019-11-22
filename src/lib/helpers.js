@@ -5,16 +5,39 @@ export function empty(element) {
   }
 }
 
-export function cards(element, data) {
-  const theCards = el('div', 'cards__row');
-  theCards.classList.add('cards');
-
-  for (const dataCard of data) {
-    makeCard(theCards, dataCard);
+export function el(elType, elClass) {
+  const element = document.createElement(`${elType}`);
+  if (elClass !== null) {
+    element.classList.add(`${elClass}`);
   }
-  makeCardEvent(theCards);
+  return element;
+}
 
-  element.appendChild(theCards);
+function findLecture(name) {
+  const lectures = JSON.parse(window.localStorage.getItem('data'));
+  for (const lect of lectures) {
+    lect.slug;
+    if (lect.slug === name) {
+      window.localStorage.setItem('lecture', JSON.stringify(lect));
+    }
+  }
+}
+
+function loadLecture(event) {
+  let slug = event.srcElement;
+
+  while (!slug.classList.contains('card')) {
+    slug = slug.parentElement;
+  }
+
+  const trim = slug.className.substring(5);
+  findLecture(trim);
+}
+
+function makeCardEvent(cards) {
+  for (const kort of cards.children) {
+    kort.addEventListener('click', loadLecture);
+  }
 }
 
 export function makeCard(element, data) {
@@ -65,11 +88,22 @@ export function makeCard(element, data) {
   checkMark.appendChild(document.createTextNode('✓'));
   theTitle.appendChild(checkMark);
   const checked = JSON.parse(window.localStorage.getItem('checkedLectures'));
-  if(!checked.includes(`${data.slug}`)) {
+  if (!checked.includes(`${data.slug}`)) {
     checkMark.classList.add('text__check--notChecked');
   }
 }
 
+export function cards(element, data) {
+  const theCards = el('div', 'cards__row');
+  theCards.classList.add('cards');
+
+  for (const dataCard of data) {
+    makeCard(theCards, dataCard);
+  }
+  makeCardEvent(theCards);
+
+  element.appendChild(theCards);
+}
 
 export function header(element, data, forsida) {
   empty(element);
@@ -104,6 +138,15 @@ export function makeMainNGrid(element) {
   return grid;
 }
 
+function toggle() {
+  this.classList.toggle('button__active');
+  const cardss = document.querySelector('.cards');
+  const parent = cardss.parentElement;
+  parent.removeChild(cardss);
+  const data = JSON.parse(window.localStorage.getItem('data'));
+  cards(parent, data);
+}
+
 export function makeButtons(element) {
   const buttons = el('div', 'row');
   const button1 = el('button', 'button__header');
@@ -131,48 +174,14 @@ export function makeButtons(element) {
   element.appendChild(buttons);
 }
 
-function toggle() {
-  this.classList.toggle('button__active');
-  const cardss = document.querySelector('.cards');
-  const parent = cardss.parentElement;
-  parent.removeChild(cardss);
-  const data = JSON.parse(window.localStorage.getItem('data'));
-  cards(parent, data);
-}
-
-export function el(elType, elClass) {
-  const element = document.createElement(`${elType}`);
-  if (elClass !== null) {
-    element.classList.add(`${elClass}`);
-  }
-  return element;
-}
-
-function makeCardEvent(cards) {
-  for (const kort of cards.children) {
-    kort.addEventListener('click', loadLecture);
-  }
-}
-
-function loadLecture(event) {
-  let slug = event.srcElement;
-
-  while (!slug.classList.contains('card')) {
-    slug = slug.parentElement;
-  }
-
-  const trim = slug.className.substring(5);
-  findLecture(trim);
-}
-
-function findLecture(name) {
-  const lectures = JSON.parse(window.localStorage.getItem('data'));
-  for (const lect of lectures) {
-    lect.slug;
-    if (lect.slug === name) {
-      window.localStorage.setItem('lecture', JSON.stringify(lect));
+function newLect(slug, oldLect) {
+  const newArray = [];
+  for (const oldSlug of oldLect) {
+    if (slug !== oldSlug) {
+      newArray.push(oldSlug);
     }
   }
+  return newArray;
 }
 
 export function checkLecture() {
@@ -185,26 +194,12 @@ export function checkLecture() {
   } else {
     const oldLect = JSON.parse(window.localStorage.getItem('checkedLectures'));
     if (oldLect.includes(slug)) {
-    //  debugger;
       const newnewLect = newLect(slug, oldLect);
       window.localStorage.removeItem('checkedLectures');
       window.localStorage.setItem('checkedLectures', JSON.stringify(newnewLect));
-      // debugger;
     } else {
       oldLect.push(slug);
       window.localStorage.setItem('checkedLectures', JSON.stringify(oldLect));
     }
   }
-  const stuff = JSON.parse(window.localStorage.getItem('checkedLectures'));
-  // debugger;
-}
-
-function newLect(slug, oldLect) {
-  const newArray = [];
-  for (const oldSlug of oldLect) {
-    if (slug != oldSlug) {
-      newArray.push(oldSlug);
-    }
-  }
-  return newArray;
 }
