@@ -32,6 +32,8 @@ export function makePage(data, isLecture) {
     const lecturePage = document.querySelector('.lecture-page');
     const theLect = JSON.parse(window.localStorage.getItem('lecture'));
     const lectArray = theLect.content;
+
+    header(lecturePage, theLect, false);
     
     for(const lectPart of lectArray) {
       makeLecturePart(lecturePage,lectPart);
