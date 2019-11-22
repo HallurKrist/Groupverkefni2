@@ -1,28 +1,71 @@
 @import "config";
 
-body{
- max-width:1200px;
- margin:auto;
-}
 .lecture{
+ &__main{
+  max-width:800px;
+  margin:auto;
+ }
+ &__heading{
+  text-align:left;
+  margin:$gutter;
+  font-family:$Roboto;
+ }
  &__quote{
+  text-align:left;
   background-color:$color--Lightlightgrey;
   margin:20px 0;
-  padding:0px 20px;
+  padding:15px 20px;
+  font-family:$font-main;
   &__quote{
    margin-bottom: 10px;
-   padding-top:10px;
   }
-  &__quoter{
-   padding-bottom:10px;
+  &__quotee{
    font-style: italic;
   }
  }
  &__video{
+   position: relative;
+
+   padding-top: $gutter;
+   padding-bottom: 50%;
+   overflow: hidden;
+
   &__video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
     width: 100%;
-    height: 55vh;
+    height: 100%;
   }
+ }
+
+ &__text{
+  text-align:left;
+  line-height:1.5em;
+  font-family:$font-main;
+  p{
+   margin:$gutter;
+  }
+ }
+ &__list{
+  text-align:left;
+  line-height:1.5em;
+  margin:$gutter;
+  font-family:$font-main;
+ }
+ &__image{
+  margin:2*$gutter $gutter;
+  &__img{
+  }
+  &__caption{
+   text-align:left;
+   font-family:$font-main;
+  }
+ }
+ &__code{
+  margin:$gutter;
+  text-align:left;
  }
 }
 
