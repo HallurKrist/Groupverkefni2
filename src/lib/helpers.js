@@ -198,10 +198,27 @@ export function checkLecture() {
       window.localStorage.setItem('checkedLectures',  JSON.stringify(oldLect));
     }
   }
-  const stuff = JSON.parse(window.localStorage.getItem('checkedLectures'));
+  //debugger;
+  checkLocal();
  // debugger;
 }
+function checkLocal(){
+  //debugger;
+  const lecture = JSON.parse(window.localStorage.getItem('lecture'));
+  const checkedMemory = JSON.parse(window.localStorage.getItem('checkedLectures'));
 
+  if(checkedMemory.includes(lecture.slug)){
+    const p = document.querySelector('.lecture__check__link');
+    p.classList.add('lecture__check__active');
+    empty(p);
+    p.appendChild(document.createTextNode('✓ Fyrirlestur Kláraður'))
+  } else if(!checkedMemory.includes(lecture.slug)){
+    const p = document.querySelector('.lecture__check__link');
+    p.classList.toggle('lecture__check__active');
+    empty(p);
+    p.appendChild(document.createTextNode('Klára Fyrirlestur'));
+  }
+}
 function newLect(slug, oldLect) {
   const newArray = [];
   for(let oldSlug of oldLect) {
