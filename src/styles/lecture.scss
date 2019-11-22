@@ -24,11 +24,22 @@
   }
  }
  &__video{
+   position: relative;
+
+   padding-top: $gutter;
+   padding-bottom: 50%;
+   overflow: hidden;
+
   &__video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
     width: 100%;
-    height: 55vh;
+    height: 100%;
   }
  }
+
  &__text{
   text-align:left;
   line-height:1.5em;
