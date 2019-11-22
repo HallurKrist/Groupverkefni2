@@ -1,6 +1,6 @@
 import '@babel/polyfill';
 import {
-  cards, header, makeMainNGrid, makeButtons, checkLocal
+  cards, header, makeMainNGrid, makeButtons, checkLocal,
 } from './lib/helpers';
 import { makeLecturePart, lectureBottom } from './lib/lecture';
 
