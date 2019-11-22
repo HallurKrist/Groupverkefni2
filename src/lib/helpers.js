@@ -223,12 +223,3 @@ export function checkLocal() {
     p.appendChild(document.createTextNode('Klára Fyrirlestur'));
   }
 }
-function newLect(slug, oldLect) {
-  const newArray = [];
-  for (const oldSlug of oldLect) {
-    if (slug != oldSlug) {
-      newArray.push(oldSlug);
-    }
-  }
-  return newArray;
-}
