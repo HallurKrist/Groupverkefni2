@@ -1,3 +1,4 @@
+import { el } from './helpers';
 // föll sem taka element og data sem viðfang og byr til hlut á elementið eftir því hvernig data það er.
 
 export function makeLecturePart(element, data) {
@@ -27,6 +28,30 @@ export function makeLecturePart(element, data) {
 
 	document.querySelector('main').classList.add('lecture__main');
 
+}
+
+export function lectureBottom(grid){
+      
+	const check = el('p','lecture__check__link');
+	const back = el('a','lecture__back__link');
+	const checkDiv = document.createElement('div');
+	const backDiv = document.createElement('div');
+
+	checkDiv.classList.add('lecture__check');
+	backDiv.classList.add('lecture__back');
+	
+	check.appendChild(document.createTextNode('Klára fyrirlestur'));
+	back.appendChild(document.createTextNode('Tilbaka'));
+	
+	//check.addEventListener('click', '');
+	back.setAttribute('href', 'index.html');
+	
+
+	checkDiv.appendChild(check);
+	backDiv.appendChild(back);
+
+	grid.appendChild(checkDiv);
+	grid.appendChild(backDiv);
 }
 
 function makeYoutube(element, data) {

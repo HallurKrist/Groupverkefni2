@@ -67,5 +67,18 @@
   margin:$gutter;
   text-align:left;
  }
+ &__check{
+  margin:$gutter 0;
+  &__active{
+   color:$color--LimeGreen;
+  }
+ }
+ &__back{
+  margin:$gutter 0;
+  &__link{
+   text-decoration: none;
+   color:$color--Black;
+  }
+ }
 }
 
