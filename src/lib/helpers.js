@@ -63,6 +63,7 @@ export function makeCard(element, data) {
 
 
 export function header(element, data, forsida) {
+  empty(element);
   const theHeader = el('header', 'header');
   const theProtection = el('div', 'header__protection');
   const theEfri = el('h3', 'header__efri');
@@ -71,8 +72,6 @@ export function header(element, data, forsida) {
   theProtection.appendChild(theEfri);
   theProtection.appendChild(theNedri);
   theHeader.appendChild(theProtection);
-
-  
 
   if (forsida) {
     theEfri.appendChild(document.createTextNode('Vefforritun'));
@@ -147,8 +146,13 @@ function makeCardEvent(cards) {
 }
 
 function loadLecture(event) {
-  const slug = event.srcElement.parentNode.parentNode.className;
-  const trim = slug.substring(5);
+  let slug = event.srcElement;
+
+  while(!slug.classList.contains('card')){
+    slug = slug.parentElement;
+  }
+
+  const trim = slug.className.substring(5);
   findLecture(trim);
 }
 
