@@ -47,6 +47,7 @@ function makeText(element, data) {
   const allText = data.data.split('\n');
   for (const paragraph of allText) { // eslint-disable-line no-restricted-syntax
     const text = document.createElement('p');
+    text.classList.add('lecture__text__paragraph');
     text.appendChild(document.createTextNode(paragraph));
     textDiv.appendChild(text);
   }
