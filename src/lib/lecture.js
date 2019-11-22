@@ -1,33 +1,4 @@
 import { el, checkLecture } from './helpers';
-// föll sem taka element og data sem viðfang og byr til hlut á elementið eftir því hvernig data það er.
-
-export function makeLecturePart(element, data) {
-  const { type } = data;
-  if (type === 'youtube') {
-    console.log('youtube');
-    makeYoutube(element, data);
-  } else if (type === 'text') {
-    console.log('text');
-    makeText(element, data);
-  } else if (type === 'image') {
-    console.log('image');
-    makeImage(element, data);
-  } else if (type === 'quote') {
-    console.log('quote');
-    makeQuote(element, data);
-  } else if (type === 'code') {
-    console.log('code');
-    makeCode(element, data);
-  } else if (type === 'heading') {
-    console.log('heading');
-    makeHeading(element, data);
-  } else if (type === 'list') {
-    console.log('list');
-    makeList(element, data);
-  }
-
-  document.querySelector('main').classList.add('lecture__main');
-}
 
 export function lectureBottom(grid) {
   const check = el('p', 'lecture__check__link');
@@ -59,10 +30,7 @@ function makeYoutube(element, data) {
 
   videoDiv.classList.add('lecture__video');
   iframe.classList.add('lecture__video__video');
-  // debugger;
   iframe.setAttribute('src', `${URL}?autoplay=1&autohide=1&border=0&wmode=opaque&enablejsapi=1`);
-  //	iframe.setAttribute('width', "400");
-  //	iframe.setAttribute('height', "auto");
 
   videoDiv.appendChild(iframe);
   element.appendChild(videoDiv);
@@ -77,15 +45,11 @@ function makeText(element, data) {
   // text.appendChild(document.createTextNode(data.data));
 
   const allText = data.data.split('\n');
-  for (const paragraph of allText) {
+  for (const paragraph of allText) { // eslint-disable-line no-restricted-syntax
     const text = document.createElement('p');
     text.appendChild(document.createTextNode(paragraph));
     textDiv.appendChild(text);
   }
-  // debugger;
-  console.log(data.data);
-
-  //	textDiv.appendChild(text);
   element.appendChild(textDiv);
 }
 
@@ -98,7 +62,6 @@ function makeHeading(element, data) {
 
   headDiv.appendChild(head);
   element.appendChild(headDiv);
-  // debugger;
 }
 
 function makeList(element, data) {
@@ -107,7 +70,7 @@ function makeList(element, data) {
 
   listDiv.classList.add('lecture__list');
 
-  for (const listitem of data.data) {
+  for (const listitem of data.data) { // eslint-disable-line no-restricted-syntax
     const item = document.createElement('li');
     item.appendChild(document.createTextNode(listitem));
     list.appendChild(item);
@@ -132,7 +95,6 @@ function makeQuote(element, data) {
   quoteBundle.appendChild(quotee);
 
   element.appendChild(quoteBundle);
-  //	console.log(data.data);
 }
 
 function makeCode(element, data) {
@@ -142,26 +104,16 @@ function makeCode(element, data) {
   codeDiv.classList.add('lecture__code');
 
   const allCode = data.data.split('\n');
-  for (let line of allCode) {
+  for (let line of allCode) { // eslint-disable-line no-restricted-syntax
     if (line === '') {
       line = ' ';
     }
     const text = document.createElement('pre');
     text.appendChild(document.createTextNode(line));
-    // codeDiv.appendChild(document.createTextNode(" "));
     codeDiv.appendChild(text);
-    //	codeDiv.appendChild(document.createElement('div'));
-    //	debugger;
   }
-  // const code = data.data;
-  // code.appendChild(document.createTextNode(data.data));
-
   codeDiv.appendChild(code);
   element.appendChild(codeDiv);
-
-  console.log(data.data);
-  // debugger;
-  // console.log(code);
 }
 
 function makeImage(element, data) {
@@ -174,7 +126,6 @@ function makeImage(element, data) {
   img.classList.add('lecture__image__img');
 
   const url = data.data;
-  const { caption } = data;
 
   imgCaption.appendChild(document.createTextNode(data.caption));
   img.setAttribute('src', url);
@@ -183,4 +134,24 @@ function makeImage(element, data) {
   imgDiv.appendChild(imgCaption);
 
   element.appendChild(imgDiv);
+}
+
+export function makeLecturePart(element, data) {
+  const { type } = data;
+  if (type === 'youtube') {
+    makeYoutube(element, data);
+  } else if (type === 'text') {
+    makeText(element, data);
+  } else if (type === 'image') {
+    makeImage(element, data);
+  } else if (type === 'quote') {
+    makeQuote(element, data);
+  } else if (type === 'code') {
+    makeCode(element, data);
+  } else if (type === 'heading') {
+    makeHeading(element, data);
+  } else if (type === 'list') {
+    makeList(element, data);
+  }
+  document.querySelector('main').classList.add('lecture__main');
 }
