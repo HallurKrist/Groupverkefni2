@@ -86,6 +86,7 @@ export function makeCard(element, data) {
   const checkMark = el('p', 'text__check');
   checkMark.appendChild(document.createTextNode('✓'));
   theTitle.appendChild(checkMark);
+
   const checked = JSON.parse(window.localStorage.getItem('checkedLectures'));
   if (!checked.includes(`${data.slug}`)) {
     checkMark.classList.add('text__check--notChecked');
@@ -186,35 +187,37 @@ function newLect(slug, oldLect) {
 export function checkLocal() {
   const lecture = JSON.parse(window.localStorage.getItem('lecture'));
   const checkedMemory = JSON.parse(window.localStorage.getItem('checkedLectures'));
+  const p = document.querySelector('.lecture__check__link');
 
-  if (checkedMemory.includes(lecture.slug)) {
-    const p = document.querySelector('.lecture__check__link');
-    p.classList.add('lecture__check__active');
-    empty(p);
-    p.appendChild(document.createTextNode('✓ Fyrirlestur Kláraður'));
-  } else if (!checkedMemory.includes(lecture.slug)) {
-    const p = document.querySelector('.lecture__check__link');
-    p.classList.remove('lecture__check__active');
-    empty(p);
-    p.appendChild(document.createTextNode('Klára Fyrirlestur'));
+  if(p){
+    if (checkedMemory.includes(lecture.slug)) {
+      const p = document.querySelector  ('.lecture__check__link');
+      p.classList.add('lecture__check__active');
+      empty(p);
+      p.appendChild(document.createTextNode('✓   Fyrirlestur Kláraður'));
+    } else if (!checkedMemory.includes(lecture.slug)) {
+      const p = document.querySelector  ('.lecture__check__link');
+      p.classList.remove('lecture__check__active');
+      empty(p);
+      p.appendChild(document.createTextNode('Klára  Fyrirlestur'));
+    }
   }
 }
 
 export function checkLecture() {
   const lecture = JSON.parse(window.localStorage.getItem('lecture'));
-  const { slug } = lecture;
-
+  const theSlug = lecture.slug;
 
   if (!window.localStorage.getItem('checkedLectures')) {
-    window.localStorage.setItem('checkedLectures', JSON.stringify([`${slug}`]));
+    window.localStorage.setItem('checkedLectures', JSON.stringify([`${theSlug}`]));
   } else {
     const oldLect = JSON.parse(window.localStorage.getItem('checkedLectures'));
-    if (oldLect.includes(slug)) {
-      const newnewLect = newLect(slug, oldLect);
+    if (oldLect.includes(theSlug)) {
+      const newnewLect = newLect(theSlug, oldLect);
       window.localStorage.removeItem('checkedLectures');
       window.localStorage.setItem('checkedLectures', JSON.stringify(newnewLect));
     } else {
-      oldLect.push(slug);
+      oldLect.push(theSlug);
       window.localStorage.setItem('checkedLectures', JSON.stringify(oldLect));
     }
   }
