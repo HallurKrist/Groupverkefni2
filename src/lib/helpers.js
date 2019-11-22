@@ -63,6 +63,7 @@ export function makeCard(element, data) {
 
 
 export function header(element, data, forsida) {
+  empty(element);
   const theHeader = el('header', 'header');
   const theProtection = el('div', 'header__protection');
   const theEfri = el('h3', 'header__efri');
@@ -72,13 +73,12 @@ export function header(element, data, forsida) {
   theProtection.appendChild(theNedri);
   theHeader.appendChild(theProtection);
 
-  
-
   if (forsida) {
     theEfri.appendChild(document.createTextNode('Vefforritun'));
     theNedri.appendChild(document.createTextNode('Fyrirlestrar'));
     theHeader.style.backgroundImage = "url('../img/header.jpg')";
   } else {
+    debugger;
     theEfri.appendChild(document.createTextNode(`${data.category}`));
     theNedri.appendChild(document.createTextNode(`${data.title}`));
     theHeader.style.backgroundImage = `url('../${data.image}')`;
