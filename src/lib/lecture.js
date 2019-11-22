@@ -45,13 +45,22 @@ function makeYoutube(element, data) {
 
 function makeText(element, data) {
 	const textDiv = document.createElement('div');
-	const text = document.createElement('p');
+	//const text = document.createElement('p');
 
 	textDiv.classList.add('lecture__text');
  
-	text.appendChild(document.createTextNode(data.data));
+	//text.appendChild(document.createTextNode(data.data));
 
-	textDiv.appendChild(text);
+	const allText = data.data.split('\n');
+	for(let paragraph of allText){
+		const text = document.createElement('p');
+		text.appendChild(document.createTextNode(paragraph));
+		textDiv.appendChild(text);
+	}
+	//debugger;
+	console.log(data.data);
+
+//	textDiv.appendChild(text);
 	element.appendChild(textDiv);
 }
 
@@ -105,10 +114,23 @@ function makeQuote(element, data) {
 function makeCode(element, data) {
 	const codeDiv = document.createElement('div');
 	const code = document.createElement('code');
-
+	
 	codeDiv.classList.add('lecture__code');
+
+	const allCode = data.data.split('\n');
+	for(let line of allCode){
+		if(line === ""){
+			line = " ";
+		}
+		const text = document.createElement('pre');
+		text.appendChild(document.createTextNode(line));
+		//codeDiv.appendChild(document.createTextNode(" "));
+		codeDiv.appendChild(text);
+	//	codeDiv.appendChild(document.createElement('div'));
+	//	debugger;
+	}
 	//const code = data.data;
-	code.appendChild(document.createTextNode(data.data));
+	//code.appendChild(document.createTextNode(data.data));
 
 	codeDiv.appendChild(code);
 	element.appendChild(codeDiv);
