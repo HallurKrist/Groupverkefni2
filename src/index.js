@@ -34,9 +34,11 @@ export function makePage(data, isLecture) {
     const lectArray = theLect.content;
 
     header(lecturePage, theLect, false);
+
+    const grid = makeMainNGrid(lecturePage);
     
     for(const lectPart of lectArray) {
-      makeLecturePart(lecturePage,lectPart);
+      makeLecturePart(grid,lectPart);
     }
   } else {
     const frontpage = document.querySelector('.frontpage');
