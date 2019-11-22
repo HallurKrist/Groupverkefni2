@@ -78,7 +78,6 @@ export function header(element, data, forsida) {
     theNedri.appendChild(document.createTextNode('Fyrirlestrar'));
     theHeader.style.backgroundImage = "url('../img/header.jpg')";
   } else {
-    debugger;
     theEfri.appendChild(document.createTextNode(`${data.category}`));
     theNedri.appendChild(document.createTextNode(`${data.title}`));
     theHeader.style.backgroundImage = `url('../${data.image}')`;
@@ -147,8 +146,13 @@ function makeCardEvent(cards) {
 }
 
 function loadLecture(event) {
-  const slug = event.srcElement.parentNode.parentNode.className;
-  const trim = slug.substring(5);
+  let slug = event.srcElement;
+
+  while(!slug.classList.contains('card')){
+    slug = slug.parentElement;
+  }
+
+  const trim = slug.className.substring(5);
   findLecture(trim);
 }
 
