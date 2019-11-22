@@ -88,7 +88,11 @@ export function makeCard(element, data) {
   theTitle.appendChild(checkMark);
 
   const checked = JSON.parse(window.localStorage.getItem('checkedLectures'));
-  if (!checked.includes(`${data.slug}`)) {
+  if(checked) {
+    if (!checked.includes(`${data.slug}`)) {
+      checkMark.classList.add('text__check--notChecked');
+    }
+  } else {
     checkMark.classList.add('text__check--notChecked');
   }
 }
@@ -189,14 +193,14 @@ export function checkLocal() {
   const checkedMemory = JSON.parse(window.localStorage.getItem('checkedLectures'));
   const p = document.querySelector('.lecture__check__link');
 
-  if(p){
+  if (p) {
     if (checkedMemory.includes(lecture.slug)) {
-      const p = document.querySelector  ('.lecture__check__link');
+      const p = document.querySelector('.lecture__check__link');
       p.classList.add('lecture__check__active');
       empty(p);
       p.appendChild(document.createTextNode('✓   Fyrirlestur Kláraður'));
     } else if (!checkedMemory.includes(lecture.slug)) {
-      const p = document.querySelector  ('.lecture__check__link');
+      const p = document.querySelector('.lecture__check__link');
       p.classList.remove('lecture__check__active');
       empty(p);
       p.appendChild(document.createTextNode('Klára  Fyrirlestur'));

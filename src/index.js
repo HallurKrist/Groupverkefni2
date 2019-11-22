@@ -16,7 +16,7 @@ export default function makePage(data, isLecture) {
     for (const lectPart of lectArray) { // eslint-disable-line no-restricted-syntax
       makeLecturePart(grid, lectPart);
     }
-    
+
     lectureBottom(grid);
     checkLocal();
   } else {
