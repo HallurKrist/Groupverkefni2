@@ -72,12 +72,16 @@ export function header(element, data, forsida) {
   theProtection.appendChild(theNedri);
   theHeader.appendChild(theProtection);
 
+  
+
   if (forsida) {
     theEfri.appendChild(document.createTextNode('Vefforritun'));
     theNedri.appendChild(document.createTextNode('Fyrirlestrar'));
+    theHeader.style.backgroundImage = "url('../img/header.jpg')";
   } else {
     theEfri.appendChild(document.createTextNode(`${data.category}`));
     theNedri.appendChild(document.createTextNode(`${data.title}`));
+    theHeader.style.backgroundImage = `url('../${data.image}')`;
   }
   
 
