@@ -19,10 +19,28 @@ body{
   }
  }
  &__video{
+   position: relative;
+   width: 100%;
+   height: 30%;
+
+   padding-top: 2*$gutter;
+   padding-bottom: 56%;
+
   &__video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
     width: 100%;
-    height: 55vh;
+    height: 100%;
+    padding-top: 2*$gutter;
   }
+
+  /*@media(min-width: 500px) {
+    height: 50%;
+  }
+
+  @media(min-width: )*/
  }
 }
 
