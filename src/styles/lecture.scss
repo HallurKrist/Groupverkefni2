@@ -1,10 +1,10 @@
 @import "config";
 
-main{
- max-width:800px;
- margin:auto;
-}
 .lecture{
+ &__main{
+  max-width:800px;
+  margin:auto;
+ }
  &__heading{
   text-align:left;
   margin:$gutter;
@@ -19,8 +19,7 @@ main{
   &__quote{
    margin-bottom: 10px;
   }
-  &__quoter{
-   padding-bottom:10px;
+  &__quotee{
    font-style: italic;
   }
  }
@@ -45,7 +44,9 @@ main{
   font-family:$font-main;
  }
  &__image{
-  margin:$gutter;
+  margin:2*$gutter $gutter;
+  &__img{
+  }
   &__caption{
    text-align:left;
    font-family:$font-main;

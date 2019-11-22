@@ -25,6 +25,8 @@ export function makeLecturePart(element, data) {
 		makeList(element, data);
 	} 
 
+	document.querySelector('main').classList.add('lecture__main');
+
 }
 
 function makeYoutube(element, data) {
