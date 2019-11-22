@@ -9,7 +9,7 @@ export function cards(element, data) {
   const theCards = el('div', 'cards__row');
   theCards.classList.add('cards');
 
-  for (const dataCard of data){
+  for (const dataCard of data) {
     makeCard(theCards, dataCard);
   }
   makeCardEvent(theCards);
@@ -26,8 +26,6 @@ export function makeCard(element, data) {
   const theGroup = el('h3', 'group');
   const theTitle = el('h1', 'title');
 
-  
-  
 
   theCard.setAttribute('href', 'fyrirlestur.html');
 
@@ -35,42 +33,40 @@ export function makeCard(element, data) {
   textDiv.appendChild(theGroup);
   textDiv.appendChild(theTitle);
 
-  
 
   theCard.appendChild(imgDiv);
   theCard.appendChild(textDiv);
   theCol.appendChild(theCard);
 
-  if ((typeof data.thumbnail) === "string"){
+  if ((typeof data.thumbnail) === 'string') {
     theImg.setAttribute('src', `${data.thumbnail}`);
   } else {
-    imgDiv.classList.add('img--noImg')
+    imgDiv.classList.add('img--noImg');
   }
 
   theGroup.appendChild(document.createTextNode(`${data.category}`));
   theTitle.appendChild(document.createTextNode(`${data.title}`));
-  theCard.classList.add(`${data.slug}`)
-  
+  theCard.classList.add(`${data.slug}`);
+
   const html = document.querySelector('.button__html').classList.contains('button__active');
   const css = document.querySelector('.button__css').classList.contains('button__active');
   const javascript = document.querySelector('.button__javascript').classList.contains('button__active');
 
-  if(!html && !css && !javascript){
+  if (!html && !css && !javascript) {
     element.appendChild(theCol);
-  } else if(`${data.category}` === 'html' && html){
+  } else if (`${data.category}` === 'html' && html) {
     element.appendChild(theCol);
-  } else if(`${data.category}` === 'css' && css){
+  } else if (`${data.category}` === 'css' && css) {
     element.appendChild(theCol);
-  } else if(`${data.category}` === 'javascript' && javascript){
+  } else if (`${data.category}` === 'javascript' && javascript) {
     element.appendChild(theCol);
   }
 
-  
-  const checkMark = el('p','text__check')
+
+  const checkMark = el('p', 'text__check');
   checkMark.appendChild(document.createTextNode('✓'));
   theTitle.appendChild(checkMark);
 }
-
 
 
 export function header(element, data, forsida) {
@@ -93,7 +89,7 @@ export function header(element, data, forsida) {
     theNedri.appendChild(document.createTextNode(`${data.title}`));
     theHeader.style.backgroundImage = `url('../${data.image}')`;
   }
-  
+
 
   element.appendChild(theHeader);
 }
@@ -108,9 +104,9 @@ export function makeMainNGrid(element) {
 
 export function makeButtons(element) {
   const buttons = el('div', 'row');
-  const button1 = el('button','button__header');
-  const button2 = el('button','button__header');
-  const button3 = el('button','button__header');
+  const button1 = el('button', 'button__header');
+  const button2 = el('button', 'button__header');
+  const button3 = el('button', 'button__header');
 
   button1.classList.add('button__html');
   button2.classList.add('button__css');
@@ -133,7 +129,7 @@ export function makeButtons(element) {
   element.appendChild(buttons);
 }
 
-function toggle(){
+function toggle() {
   this.classList.toggle('button__active');
   const cardss = document.querySelector('.cards');
   const parent = cardss.parentElement;
@@ -145,13 +141,13 @@ function toggle(){
 export function el(elType, elClass) {
   const element = document.createElement(`${elType}`);
   if (elClass !== null) {
-    element.classList.add(`${elClass}`)
+    element.classList.add(`${elClass}`);
   }
   return element;
 }
 
 function makeCardEvent(cards) {
-  for(const kort of cards.children) {
+  for (const kort of cards.children) {
     kort.addEventListener('click', loadLecture);
   }
 }
@@ -159,7 +155,7 @@ function makeCardEvent(cards) {
 function loadLecture(event) {
   let slug = event.srcElement;
 
-  while(!slug.classList.contains('card')){
+  while (!slug.classList.contains('card')) {
     slug = slug.parentElement;
   }
 
@@ -167,45 +163,44 @@ function loadLecture(event) {
   findLecture(trim);
 }
 
-function findLecture(name){
+function findLecture(name) {
   const lectures = JSON.parse(window.localStorage.getItem('data'));
-  for(const lect of lectures) {
+  for (const lect of lectures) {
     lect.slug;
-    if(lect.slug === name){
-      window.localStorage.setItem('lecture', JSON.stringify(lect)) ;
+    if (lect.slug === name) {
+      window.localStorage.setItem('lecture', JSON.stringify(lect));
     }
   }
 }
 
 export function checkLecture() {
   const lecture = JSON.parse(window.localStorage.getItem('lecture'));
-  const slug = lecture.slug;
+  const { slug } = lecture;
 
-  
 
-  if(!window.localStorage.getItem('checkedLectures')) {
+  if (!window.localStorage.getItem('checkedLectures')) {
     window.localStorage.setItem('checkedLectures', JSON.stringify([`${slug}`]));
   } else {
     const oldLect = JSON.parse(window.localStorage.getItem('checkedLectures'));
-    if(oldLect.includes(slug)) {
+    if (oldLect.includes(slug)) {
     //  debugger;
       const newnewLect = newLect(slug, oldLect);
       window.localStorage.removeItem('checkedLectures');
       window.localStorage.setItem('checkedLectures', JSON.stringify(newnewLect));
-     // debugger;
+      // debugger;
     } else {
       oldLect.push(slug);
-      window.localStorage.setItem('checkedLectures',  JSON.stringify(oldLect));
+      window.localStorage.setItem('checkedLectures', JSON.stringify(oldLect));
     }
   }
   const stuff = JSON.parse(window.localStorage.getItem('checkedLectures'));
- // debugger;
+  // debugger;
 }
 
 function newLect(slug, oldLect) {
   const newArray = [];
-  for(let oldSlug of oldLect) {
-    if(slug != oldSlug) {
+  for (const oldSlug of oldLect) {
+    if (slug != oldSlug) {
       newArray.push(oldSlug);
     }
   }
