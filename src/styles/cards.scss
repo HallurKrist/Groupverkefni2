@@ -62,6 +62,8 @@
 
 .title {
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 }
 
 .img--noImg {

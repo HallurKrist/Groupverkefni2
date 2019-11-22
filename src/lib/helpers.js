@@ -26,11 +26,17 @@ export function makeCard(element, data) {
   const theGroup = el('h3', 'group');
   const theTitle = el('h1', 'title');
 
+  
+  
+
   theCard.setAttribute('href', 'fyrirlestur.html');
 
   imgDiv.appendChild(theImg);
   textDiv.appendChild(theGroup);
   textDiv.appendChild(theTitle);
+
+  
+
   theCard.appendChild(imgDiv);
   theCard.appendChild(textDiv);
   theCol.appendChild(theCard);
@@ -58,6 +64,11 @@ export function makeCard(element, data) {
   } else if(`${data.category}` === 'javascript' && javascript){
     element.appendChild(theCol);
   }
+
+  
+  const checkMark = el('p','text__check')
+  checkMark.appendChild(document.createTextNode('✓'));
+  theTitle.appendChild(checkMark);
 }
 
 
@@ -131,7 +142,7 @@ function toggle(){
   cards(parent, data);
 }
 
-function el(elType, elClass) {
+export function el(elType, elClass) {
   const element = document.createElement(`${elType}`);
   if (elClass !== null) {
     element.classList.add(`${elClass}`)
