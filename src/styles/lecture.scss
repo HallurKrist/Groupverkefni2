@@ -26,11 +26,10 @@ main{
  }
  &__video{
    position: relative;
-   width: 100%;
-   height: 30%;
 
-   padding-top: 2*$gutter;
-   padding-bottom: 56%;
+   padding-top: $gutter;
+   padding-bottom: 50%;
+   overflow: hidden;
 
   &__video{
     position: absolute;
@@ -39,15 +38,9 @@ main{
     border: 0;
     width: 100%;
     height: 100%;
-    padding-top: 2*$gutter;
   }
-
-  /*@media(min-width: 500px) {
-    height: 50%;
-  }
-
-  @media(min-width: )*/
  }
+
  &__text{
   text-align:left;
   line-height:1.5em;
