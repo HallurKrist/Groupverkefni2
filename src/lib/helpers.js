@@ -195,15 +195,13 @@ export function checkLocal() {
 
   if (p) {
     if (checkedMemory.includes(lecture.slug)) {
-      const slugCheck = document.querySelector('.lecture__check__link');
-      slugCheck.classList.add('lecture__check__active');
-      empty(slugCheck);
-      slugCheck.appendChild(document.createTextNode('✓   Fyrirlestur Kláraður'));
+      p.classList.add('lecture__check__active');
+      empty(p);
+      p.appendChild(document.createTextNode('✓   Fyrirlestur Kláraður'));
     } else if (!checkedMemory.includes(lecture.slug)) {
-      const slugCheck = document.querySelector('.lecture__check__link');
-      slugCheck.classList.remove('lecture__check__active');
-      empty(slugCheck);
-      slugCheck.appendChild(document.createTextNode('Klára  Fyrirlestur'));
+      p.classList.remove('lecture__check__active');
+      empty(p);
+      p.appendChild(document.createTextNode('Klára  Fyrirlestur'));
     }
   }
 }
