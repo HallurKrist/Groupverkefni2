@@ -33,10 +33,11 @@ function makeYoutube(element, data) {
 	const URL = data.data;
 
 	videoDiv.classList.add('lecture__video');
+	iframe.classList.add('lecture__video__video');
 	//debugger;
-
-  iframe.setAttribute('src', `${URL}?autoplay=1&autohide=1&border=0&wmode=opaque&enablejsapi=1`);
-	iframe.setAttribute('class', 'video');
+	iframe.setAttribute('src', `${URL}?autoplay=1&autohide=1&border=0&wmode=opaque&enablejsapi=1`);
+//	iframe.setAttribute('width', "400");
+//	iframe.setAttribute('height', "auto");
 	
 	videoDiv.appendChild(iframe);
 	element.appendChild(videoDiv);
@@ -111,6 +112,9 @@ function makeCode(element, data) {
 
 	codeDiv.appendChild(code);
 	element.appendChild(codeDiv);
+
+	console.log(data.data);
+	//debugger;
 	//console.log(code);
 }
 
