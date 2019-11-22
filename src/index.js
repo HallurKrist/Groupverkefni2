@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import {
   cards, header, makeMainNGrid, makeButtons, checkLocal,
 } from './lib/helpers';
@@ -14,7 +13,7 @@ export default function makePage(data, isLecture) {
 
     const grid = makeMainNGrid(lecturePage);
 
-    for (const lectPart of lectArray) {
+    for (const lectPart of lectArray) { // eslint-disable-line no-restricted-syntax
       makeLecturePart(grid, lectPart);
     }
 
