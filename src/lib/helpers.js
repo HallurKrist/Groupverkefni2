@@ -176,3 +176,22 @@ function findLecture(name){
     }
   }
 }
+
+export function checkLecture() {
+  const lecture = window.localStorage.getItem('lecture');
+  if(lecture);
+  debugger;
+
+  // const theChecked = {"checked": [
+  //   {
+  //     `${lecture}`:"done!"
+  //   }
+  // ]};
+
+  if(!window.localStorage.getItem('checkedLectures')) {
+    window.localStorage.setItem('checkedLectures', )
+  } else {
+
+  }
+  debugger;
+}

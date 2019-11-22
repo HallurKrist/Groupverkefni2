@@ -1,5 +1,5 @@
 import '@babel/polyfill'
-import { cards , header , makeMainNGrid, makeButtons, el } from './lib/helpers';
+import { cards , header , makeMainNGrid, makeButtons, el, checkLecture } from './lib/helpers';
 import { makeLecturePart } from './lib/lecture';
 
 
@@ -47,7 +47,7 @@ export function makePage(data, isLecture) {
     check.appendChild(document.createTextNode('Klára fyrirlestur'));
     back.appendChild(document.createTextNode('Tilbaka'));
 
-    //check.addEventListener('click', '');
+    check.addEventListener('click', checkLecture);
     back.setAttribute('href', 'index.html');
 
     grid.appendChild(check);
@@ -57,7 +57,7 @@ export function makePage(data, isLecture) {
     header(frontpage, null, true);
     const grid = makeMainNGrid(frontpage);
     makeButtons(grid);
-    window.localStorage.setItem('data', JSON.stringify  (data));
+    window.localStorage.setItem('data', JSON.stringify(data));
     cards(grid, data);
   }
 }
