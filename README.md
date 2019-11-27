@@ -41,13 +41,13 @@ Eftirfarandi er sett upp í verkefni:
 
 ## Hópmeðlimir
 
-* Hallur Kristinn Hallsson 
+* `Hallur Kristinn Hallsson` 
 - hkh32@hi.is 
 - Dæmatímahópur 2
-* Heiða Helgudóttir 
+* `Heiða Helgudóttir` 
 - heh72@hi.is 
 - Dæmatímahópur 2
-* Guðmundur Garðar Árnason 
+* `Guðmundur Garðar Árnason` 
 - gga3@hi.is 
 - Dæmatímahópur 5
 
