@@ -1,20 +1,4 @@
 
-
-## Hópavinna
-
-Verkefnið skal unnið í hóp með þremur einstaklingum. Hafið samband við kennara ef ekki er mögulegt að vinna í hóp.
-
-Notast skal við Git og GitHub. Engar zip skrár með kóða ættu að ganga á milli í hópavinnu, heldur á að „committa“ allan kóða og vinna gegnum Git.
-
-## Lýsing á verkefni
-
-`README.md` skrá skal vera í rót verkefnis og innihalda:
-
-* Upplýsingar um hvernig keyra skuli verkefnið
-* Lýsingu á uppsetningu verkefnis, hvernig því er skipt í möppur, hvernig CSS og JavaScript er skipulagt og fleira sem á við
-* Upplýsingar um alla sem unnu verkefni
-* Leyfilegt er að halda eftir þessari verkefnalýsingu en hún skal þá koma _á eftir_ ykkar lýsingu
-
 ## Að keyra verkefnið
 Til að keyra verkefnið þarf að vera með node.js í tölvunni sem verið er að vinna í.
 Þegar viðkomandi er kominn með node.js þá þarf hann að keyra í cmd eða svipuðu umhverfi inni í verkefnis möppunni eftirfarandi skipanir:
@@ -54,6 +38,27 @@ Eftirfarandi er sett upp í verkefni:
   - `rollup-watch` til að vakta js skrár og þjappa þeim við breytingar á þeim
   - `dev` til að keyra `sass` og `browser-sync`
 
+
+## Hópmeðlimir
+
+* Hallur Kristinn Hallsson 
+- hkh32@hi.is 
+- Dæmatímahópur 2
+* Heiða Helgudóttir 
+- heh72@hi.is 
+- Dæmatímahópur 2
+* Guðmundur Garðar Árnason 
+- gga3@hi.is 
+- Dæmatímahópur 5
+
+## Lýsing á verkefni
+
+`README.md` skrá skal vera í rót verkefnis og innihalda:
+
+* Upplýsingar um hvernig keyra skuli verkefnið
+* Lýsingu á uppsetningu verkefnis, hvernig því er skipt í möppur, hvernig CSS og JavaScript er skipulagt og fleira sem á við
+* Upplýsingar um alla sem unnu verkefni
+* Leyfilegt er að halda eftir þessari verkefnalýsingu en hún skal þá koma _á eftir_ ykkar lýsingu
 
 ## Mat
 
